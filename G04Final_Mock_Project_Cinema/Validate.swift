@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Foundation
 import SystemConfiguration
 public class Validate {
     //1.Kiểm tra tính hợp lệ của SĐT
