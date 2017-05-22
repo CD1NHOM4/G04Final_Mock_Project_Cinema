@@ -30,7 +30,7 @@
         <!--Log In View Controller-->
         <scene sceneID="mKX-58-j4F">
             <objects>
-                <viewController storyboardIdentifier="viewDangNhap" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HHb-vW-AeI" customClass="LogInViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewDangNhap" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HHb-vW-AeI" customClass="LogInViewController" customModule="G04Final_Mock_Project_Cinema" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rep-S5-pMm"/>
                         <viewControllerLayoutGuide type="bottom" id="RjZ-VC-y5o"/>
@@ -46,7 +46,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-63-uWA" customClass="LogInTextField" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-63-uWA">
                                 <rect key="frame" x="28" y="133" width="319" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,7 +57,7 @@
                                     <outlet property="delegate" destination="HHb-vW-AeI" id="gTR-jy-Cvg"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7O-7X-Eys" customClass="LogInTextField" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7O-7X-Eys">
                                 <rect key="frame" x="28" y="183" width="319" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,7 +128,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="6o6-1U-riA">
             <objects>
-                <viewController storyboardIdentifier="userProfileView" id="PkX-4F-yVr" customClass="UserProfileViewController" customModule="G04_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userProfileView" id="PkX-4F-yVr" customClass="UserProfileViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D6U-0K-Wlx"/>
                         <viewControllerLayoutGuide type="bottom" id="zTP-bW-KjC"/>
