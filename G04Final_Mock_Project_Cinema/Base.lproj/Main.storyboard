@@ -490,6 +490,190 @@
             </objects>
             <point key="canvasLocation" x="2329" y="-367"/>
         </scene>
+        <!--Forgot Pass View Controller-->
+        <scene sceneID="fDf-bF-HVI">
+            <objects>
+                <viewController id="bMe-wC-fzE" customClass="ForgotPassViewController" customModule="G04_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dEN-Tn-KtF"/>
+                        <viewControllerLayoutGuide type="bottom" id="CVR-xb-bt3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kdD-rv-nRm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVr-it-fID">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TBg-5O-mg5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LH-qb-REn" customClass="CustomDesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                            <rect key="frame" x="28" y="187" width="319" height="34"/>
+                                            <color key="backgroundColor" red="0.1389717399" green="0.48673562120000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="lIh-1E-a9Y"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" title="Lấy lại Mật Khẩu">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="btnResetPass_Act:" destination="bMe-wC-fzE" eventType="touchUpInside" id="rUG-od-9gk"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email đã đăng kí" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-JC-pIA">
+                                            <rect key="frame" x="28" y="119" width="319" height="34"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvA-go-nr6">
+                                            <rect key="frame" x="340" y="20" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="LGX-Z6-L3K"/>
+                                                <constraint firstAttribute="width" constant="25" id="loI-BE-LLI"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.86758623580000005" green="0.87377224350000005" blue="0.89233026650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="close"/>
+                                            <connections>
+                                                <action selector="btnClose_Act:" destination="bMe-wC-fzE" eventType="touchUpInside" id="EVc-hb-OfJ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="WvA-go-nr6" firstAttribute="top" secondItem="TBg-5O-mg5" secondAttribute="top" constant="20" id="1NB-N1-cyP"/>
+                                        <constraint firstAttribute="trailing" secondItem="WvA-go-nr6" secondAttribute="trailing" constant="10" id="Aoh-IT-Nh4"/>
+                                        <constraint firstItem="PcX-JC-pIA" firstAttribute="centerY" secondItem="TBg-5O-mg5" secondAttribute="centerY" id="CyP-gq-P9T"/>
+                                        <constraint firstItem="PcX-JC-pIA" firstAttribute="width" secondItem="TBg-5O-mg5" secondAttribute="width" multiplier="0.85" id="ESC-0Z-ZCe"/>
+                                        <constraint firstItem="9LH-qb-REn" firstAttribute="width" secondItem="TBg-5O-mg5" secondAttribute="width" multiplier="0.85" id="ITe-Vf-i1O"/>
+                                        <constraint firstItem="PcX-JC-pIA" firstAttribute="height" secondItem="TBg-5O-mg5" secondAttribute="height" multiplier="0.125" id="RXw-tc-AYD"/>
+                                        <constraint firstItem="9LH-qb-REn" firstAttribute="top" secondItem="PcX-JC-pIA" secondAttribute="bottom" constant="33.5" id="bBB-e7-XT9"/>
+                                        <constraint firstItem="9LH-qb-REn" firstAttribute="height" secondItem="TBg-5O-mg5" secondAttribute="height" multiplier="0.125" id="bWm-fg-3FZ"/>
+                                        <constraint firstItem="PcX-JC-pIA" firstAttribute="centerX" secondItem="TBg-5O-mg5" secondAttribute="centerX" id="i05-iy-sci"/>
+                                        <constraint firstItem="9LH-qb-REn" firstAttribute="centerX" secondItem="TBg-5O-mg5" secondAttribute="centerX" id="rhb-Os-C6E"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.77904122009999999" green="1" blue="0.77783149100000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OVr-it-fID" firstAttribute="top" secondItem="kdD-rv-nRm" secondAttribute="top" id="2VC-8q-OlM"/>
+                            <constraint firstItem="OVr-it-fID" firstAttribute="leading" secondItem="kdD-rv-nRm" secondAttribute="leading" id="412-Eo-bl7"/>
+                            <constraint firstAttribute="trailing" secondItem="OVr-it-fID" secondAttribute="trailing" id="GzR-Lj-7S3"/>
+                            <constraint firstItem="CVR-xb-bt3" firstAttribute="top" secondItem="OVr-it-fID" secondAttribute="bottom" id="xwk-On-w7c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtEmailRegistered" destination="PcX-JC-pIA" id="0FV-fa-cug"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iLu-fu-WiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="145"/>
+        </scene>
+        <!--Change Pass View Controller-->
+        <scene sceneID="mTN-aU-hQ7">
+            <objects>
+                <viewController storyboardIdentifier="changePassId" id="ng9-5V-lWo" customClass="ChangePassViewController" customModule="G04_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mby-vI-ra5"/>
+                        <viewControllerLayoutGuide type="bottom" id="uuo-jL-YqA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ogD-1Y-D78">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSZ-f5-NeA" customClass="LoginTextField" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                <rect key="frame" x="28" y="185" width="319" height="30"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RHB-EB-qGj"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wfy-qM-VrE">
+                                <rect key="frame" x="28" y="240" width="319" height="30"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hr3-tU-MXi"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Confirm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lW6-ft-dx2">
+                                <rect key="frame" x="28" y="295" width="319" height="30"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="irP-KO-325"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lml-Be-Whp">
+                                <rect key="frame" x="28" y="350" width="141" height="30"/>
+                                <color key="backgroundColor" red="0.1389717399" green="0.48673562120000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SKj-1F-cCS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Trở về">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBack_Act:" destination="ng9-5V-lWo" eventType="touchUpInside" id="8xw-fX-cSH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iM6-Qr-3BH">
+                                <rect key="frame" x="200" y="350" width="147" height="30"/>
+                                <color key="backgroundColor" red="0.1389717399" green="0.48673562120000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FhL-cA-aBl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Chấp nhận">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnChangePass_Act:" destination="ng9-5V-lWo" eventType="touchUpInside" id="SGN-bG-afc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.77904122009999999" green="1" blue="0.77783149100000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xSZ-f5-NeA" firstAttribute="centerX" secondItem="ogD-1Y-D78" secondAttribute="centerX" id="4S2-vn-mhU"/>
+                            <constraint firstItem="Lml-Be-Whp" firstAttribute="leading" secondItem="lW6-ft-dx2" secondAttribute="leading" id="6Qs-xy-fge"/>
+                            <constraint firstItem="iM6-Qr-3BH" firstAttribute="baseline" secondItem="Lml-Be-Whp" secondAttribute="baseline" id="769-MF-zQa"/>
+                            <constraint firstItem="Lml-Be-Whp" firstAttribute="top" secondItem="lW6-ft-dx2" secondAttribute="bottom" constant="25" id="9co-sd-w2h"/>
+                            <constraint firstItem="Wfy-qM-VrE" firstAttribute="centerX" secondItem="ogD-1Y-D78" secondAttribute="centerX" id="Rcr-Lg-rDS"/>
+                            <constraint firstItem="Lml-Be-Whp" firstAttribute="width" secondItem="lW6-ft-dx2" secondAttribute="width" multiplier="0.4" constant="13.199999999999989" id="Ubd-FU-lLs"/>
+                            <constraint firstItem="iM6-Qr-3BH" firstAttribute="leading" secondItem="Lml-Be-Whp" secondAttribute="trailing" constant="31" id="VHM-De-Kes"/>
+                            <constraint firstItem="xSZ-f5-NeA" firstAttribute="centerY" secondItem="ogD-1Y-D78" secondAttribute="centerY" multiplier="0.6" id="i7w-DX-mrW"/>
+                            <constraint firstItem="Wfy-qM-VrE" firstAttribute="width" secondItem="ogD-1Y-D78" secondAttribute="width" multiplier="0.85" id="jXZ-ct-QKp"/>
+                            <constraint firstItem="iM6-Qr-3BH" firstAttribute="trailing" secondItem="lW6-ft-dx2" secondAttribute="trailing" id="k4b-Oc-BX2"/>
+                            <constraint firstItem="xSZ-f5-NeA" firstAttribute="width" secondItem="ogD-1Y-D78" secondAttribute="width" multiplier="0.85" id="mY6-SB-ZyW"/>
+                            <constraint firstItem="lW6-ft-dx2" firstAttribute="top" secondItem="Wfy-qM-VrE" secondAttribute="bottom" constant="25" id="o1K-G1-6nY"/>
+                            <constraint firstItem="lW6-ft-dx2" firstAttribute="centerX" secondItem="ogD-1Y-D78" secondAttribute="centerX" id="vjh-tI-psT"/>
+                            <constraint firstItem="lW6-ft-dx2" firstAttribute="width" secondItem="ogD-1Y-D78" secondAttribute="width" multiplier="0.85" id="wdJ-8k-xar"/>
+                            <constraint firstItem="Wfy-qM-VrE" firstAttribute="top" secondItem="xSZ-f5-NeA" secondAttribute="bottom" constant="25" id="xtV-Vh-nM6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtfConfirmPass" destination="lW6-ft-dx2" id="Tln-0P-kFu"/>
+                        <outlet property="txtfNewPass" destination="Wfy-qM-VrE" id="4r1-Uw-pOK"/>
+                        <outlet property="txtfOldPass" destination="xSZ-f5-NeA" id="cUJ-XJ-rYh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAE-ab-y6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2329" y="296"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BGImg2" width="16" height="16"/>
