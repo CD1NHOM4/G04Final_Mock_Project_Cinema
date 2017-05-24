@@ -493,7 +493,7 @@
         <!--Forgot Pass View Controller-->
         <scene sceneID="fDf-bF-HVI">
             <objects>
-                <viewController id="bMe-wC-fzE" customClass="ForgotPassViewController" customModule="G04_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bMe-wC-fzE" customClass="ForgotPassViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dEN-Tn-KtF"/>
                         <viewControllerLayoutGuide type="bottom" id="CVR-xb-bt3"/>
@@ -508,7 +508,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LH-qb-REn" customClass="CustomDesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LH-qb-REn" customClass="CustomDesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                             <rect key="frame" x="28" y="187" width="319" height="34"/>
                                             <color key="backgroundColor" red="0.1389717399" green="0.48673562120000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -577,7 +577,7 @@
         <!--Change Pass View Controller-->
         <scene sceneID="mTN-aU-hQ7">
             <objects>
-                <viewController storyboardIdentifier="changePassId" id="ng9-5V-lWo" customClass="ChangePassViewController" customModule="G04_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="changePassId" id="ng9-5V-lWo" customClass="ChangePassViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mby-vI-ra5"/>
                         <viewControllerLayoutGuide type="bottom" id="uuo-jL-YqA"/>
@@ -586,7 +586,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSZ-f5-NeA" customClass="LoginTextField" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Old Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSZ-f5-NeA" customClass="LoginTextField" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="28" y="185" width="319" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -674,9 +674,52 @@
             </objects>
             <point key="canvasLocation" x="2329" y="296"/>
         </scene>
+        <!--Phim Đang Chiếu-->
+        <scene sceneID="Z8b-yK-V8g">
+            <objects>
+                <tableViewController id="xeh-qM-5fn" customClass="DangChieuTableViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="30" sectionFooterHeight="30" id="CDg-ot-Bur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CGV_Logo" id="TSn-Af-aHF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieRowCell" rowHeight="38" id="e3f-ET-zsV" customClass="CustomTableViewCell" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="80" width="375" height="38"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e3f-ET-zsV" id="BmE-Iv-kf2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xeh-qM-5fn" id="zTP-xQ-dZZ"/>
+                            <outlet property="delegate" destination="xeh-qM-5fn" id="BND-u1-kS5"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Phim Đang Chiếu" id="i5t-ST-CAZ">
+                        <barButtonItem key="leftBarButtonItem" image="user" id="aHp-H4-YXi">
+                            <connections>
+                                <action selector="btnUserInfo:" destination="xeh-qM-5fn" id="ND3-XI-AMZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yzt-e9-211" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-137" y="1055"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BGImg2" width="16" height="16"/>
+        <image name="CGV_Logo" width="16" height="16"/>
         <image name="close" width="16" height="16"/>
+        <image name="user" width="16" height="16"/>
     </resources>
 </document>
