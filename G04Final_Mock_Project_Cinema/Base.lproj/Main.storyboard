@@ -715,6 +715,47 @@
             </objects>
             <point key="canvasLocation" x="-137" y="1055"/>
         </scene>
+        <!--Phim Đã Chiếu-->
+        <scene sceneID="jJ3-nN-k5I">
+            <objects>
+                <tableViewController id="zu0-bc-cxu" customClass="PhimDaChieuTableViewController" customModule="G04_Mock_Project_Cinema" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="30" sectionFooterHeight="30" id="QmU-R5-vUW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CGV_Logo" id="Fci-9N-VVw" userLabel="CGV_Logo">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieRowCell" rowHeight="38" id="fJ8-6L-N1n" customClass="CustomTableViewCell" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="80" width="375" height="38"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJ8-6L-N1n" id="O0k-Ik-xDu">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zu0-bc-cxu" id="2t3-X9-BmS"/>
+                            <outlet property="delegate" destination="zu0-bc-cxu" id="Y2Z-kS-Wf4"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Phim Đã Chiếu" id="ZlV-lT-dlJ">
+                        <barButtonItem key="leftBarButtonItem" image="user" id="Bsu-0G-qBk">
+                            <connections>
+                                <action selector="btnUserInfoClick:" destination="zu0-bc-cxu" id="3df-pP-1zR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vp6-rL-0F7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="-429"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BGImg2" width="16" height="16"/>
