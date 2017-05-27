@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Movie {
+    var movieDetail: MovieDetail
+    var showTime: ShowTime
+    
+    init(movieDetail: MovieDetail, showTime: ShowTime) {
+        self.movieDetail = movieDetail
+        self.showTime = showTime
+    }
+}
