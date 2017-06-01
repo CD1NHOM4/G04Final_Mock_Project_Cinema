@@ -728,7 +728,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieRowCell" rowHeight="38" id="fJ8-6L-N1n" customClass="CustomTableViewCell" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieRowCell" rowHeight="38" id="fJ8-6L-N1n" customClass="CustomTableViewCell" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="80" width="375" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJ8-6L-N1n" id="O0k-Ik-xDu">

@@ -149,7 +149,8 @@ class DangChieuTableViewController: UITableViewController {
     
     //load dữ liệu lên cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieRowCell", for: indexPath) //as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieRowCell", for: indexPath)
+            as! CustomTableViewCell
         let movieDetail: MovieDetail
         if (searchController.isActive && searchController.searchBar.text != "") {
             movieDetail = searchMovies[indexPath.row]
@@ -157,7 +158,7 @@ class DangChieuTableViewController: UITableViewController {
         else {
             movieDetail = movies[indexPath.row]
         }
-        //cell.configWithCell(movieDetail: movieDetail)
+        cell.configWithCell(movieDetail: movieDetail)
         return cell
     }
 //chức năng chi tiết phim...
