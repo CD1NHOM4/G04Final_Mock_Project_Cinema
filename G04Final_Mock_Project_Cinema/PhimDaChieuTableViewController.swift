@@ -159,21 +159,7 @@ class PhimDaChieuTableViewController: UITableViewController {
         return cell
     }
     
-    //Sự kiện click cell
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let srcDetailMovie = self.storyboard?.instantiateViewController(withIdentifier: "movieDetailId") as! MovieDetailTableViewController
-        let movieDetail: MovieDetail
-        if (searchController.isActive && searchController.searchBar.text! != "") {
-            movieDetail = searchFilms[indexPath.row]
-        }
-        else {
-            movieDetail = movies[indexPath.row]
-        }
-        
-        srcDetailMovie.movieDetail = movieDetail
-        navigationController?.pushViewController(srcDetailMovie, animated: true)
-        
-    }
+    //chitiet phim
     //search
     func searchMovieByName(_ movieName: String) {
         searchFilms = movies.filter({ (movieDetail: MovieDetail) -> Bool in
