@@ -71,4 +71,5 @@ class MovieDetailTableViewController: UITableViewController {
     }
     
     //chon suat chieu
+    
 }
