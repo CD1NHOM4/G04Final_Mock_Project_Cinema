@@ -1467,10 +1467,10 @@
             </objects>
             <point key="canvasLocation" x="754" y="1055"/>
         </scene>
-        <!--Lua Chon Ghe View Controller-->
+        <!--View Controller-->
         <scene sceneID="HhK-Fx-y53">
             <objects>
-                <viewController storyboardIdentifier="choosePlacesId" id="EVR-jk-TaT" customClass="LuaChonGheViewController" customModule="G04_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chonGheView" id="EVR-jk-TaT" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Ze-mr-Y0J"/>
                         <viewControllerLayoutGuide type="bottom" id="iRf-nw-kH0"/>
