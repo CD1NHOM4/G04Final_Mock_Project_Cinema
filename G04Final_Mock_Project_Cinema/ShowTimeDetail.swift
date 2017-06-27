@@ -15,5 +15,6 @@ class ShowTimeDetail {
     init(time: String, type: String) {
         self.time = time
         self.type = type
+        //self.state = state
     }
 }
