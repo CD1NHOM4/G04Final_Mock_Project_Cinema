@@ -53,8 +53,8 @@ class LuaChonGheViewController: UIViewController {
     var ticket: Int = 0
     var progressDialog: MBProgressHUD!
     var listPlaces = [String]()
-    var billCost: Int64  = 0
-    var userDetail: UserProfile!
+    var billMoney: Int64  = 0
+    var userProfile: UserProfile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -1158,14 +1158,14 @@ class LuaChonGheViewController: UIViewController {
             }
             
             //Cập nhật số dư tài khoản sau khi thanh toán
-            let dataBalance = ["balance": Int64(userDetail.balance) - billCost]
+            let dataBalance = ["balance": Int64(userProfile.balance) - billMoney]
             refDatabase.child("Acount").child(getUid()).updateChildValues(dataBalance)
             
             //Lưu vé đã đặt vào users tương ứng
             let dataFilms = [
                 "movieId": movieDetail.movieId,
                 "movieType": movieDetail.movieType,
-                "price": billCost,
+                "price": billMoney,
                 "seat": listPlaces,
                 "showTime": time,
                 "timestamp": getTodayString()
