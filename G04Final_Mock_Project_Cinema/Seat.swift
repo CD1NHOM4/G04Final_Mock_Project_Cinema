@@ -8,6 +8,7 @@
 
 import Foundation
 
+//class ghế ngôi
 class Seat {
     var seatId: String
     var state: Bool

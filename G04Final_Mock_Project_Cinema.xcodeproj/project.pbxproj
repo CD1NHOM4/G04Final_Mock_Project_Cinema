@@ -40,6 +40,8 @@
 		050F65D51F19D5B60092230D /* BookVeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050F65D41F19D5B60092230D /* BookVeViewController.swift */; };
 		050F65D71F19D5B60092230D /* CustomDesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050F65D61F19D5B60092230D /* CustomDesignButton.swift */; };
 		050F65D91F19D5B60092230D /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050F65D81F19D5B60092230D /* Seat.swift */; };
+		050F65DB1F19D5B60092230D /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050F65DA1F19D5B60092230D /* Voucher.swift */; };
+		050F65DD1F19D5B60092230D /* HistoryBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050F65DC1F19D5B60092230D /* HistoryBooking.swift */; };
 		24F22BD5A19D1D13A678DCC2 /* Pods_G04Final_Mock_Project_CinemaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2BE8DB1422E1DF11EA2459 /* Pods_G04Final_Mock_Project_CinemaUITests.framework */; };
 		A6C923D4B3C14B724F96C588 /* Pods_G04Final_Mock_Project_CinemaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347902098436D641DB172052 /* Pods_G04Final_Mock_Project_CinemaTests.framework */; };
 		B1689D35BD3D30C36AB301E4 /* Pods_G04Final_Mock_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93DBE578239562374F4BCB8 /* Pods_G04Final_Mock_Project_Cinema.framework */; };
@@ -103,6 +105,8 @@
 		050F65D41F19D5B60092230D /* BookVeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookVeViewController.swift; sourceTree = "<group>"; };
 		050F65D61F19D5B60092230D /* CustomDesignButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDesignButton.swift; sourceTree = "<group>"; };
 		050F65D81F19D5B60092230D /* Seat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		050F65DA1F19D5B60092230D /* Voucher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
+		050F65DC1F19D5B60092230D /* HistoryBooking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryBooking.swift; sourceTree = "<group>"; };
 		12BA0418C14A6FFDFAD7D198 /* Pods-G04Final_Mock_Project_CinemaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G04Final_Mock_Project_CinemaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-G04Final_Mock_Project_CinemaTests/Pods-G04Final_Mock_Project_CinemaTests.release.xcconfig"; sourceTree = "<group>"; };
 		1B945A2E17B88CE9C43C527D /* Pods-G04Final_Mock_Project_Cinema.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G04Final_Mock_Project_Cinema.release.xcconfig"; path = "Pods/Target Support Files/Pods-G04Final_Mock_Project_Cinema/Pods-G04Final_Mock_Project_Cinema.release.xcconfig"; sourceTree = "<group>"; };
 		347902098436D641DB172052 /* Pods_G04Final_Mock_Project_CinemaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_G04Final_Mock_Project_CinemaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +214,8 @@
 				050F65BE1F19D5B60092230D /* ShowTime.swift */,
 				050F65C01F19D5B60092230D /* ShowTimeDetail.swift */,
 				050F65D81F19D5B60092230D /* Seat.swift */,
+				050F65DA1F19D5B60092230D /* Voucher.swift */,
+				050F65DC1F19D5B60092230D /* HistoryBooking.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				050F65D91F19D5B60092230D /* Seat.swift in Sources */,
 				050F65B31F19D5B60092230D /* UserProfileViewController.swift in Sources */,
 				050F659F1F19D5B60092230D /* Validate.swift in Sources */,
+				050F65DB1F19D5B60092230D /* Voucher.swift in Sources */,
 				050F65C91F19D5B60092230D /* CustomTextField.swift in Sources */,
 				050F65AF1F19D5B60092230D /* UserProfile.swift in Sources */,
 				050F65A71F19D5B60092230D /* LogInViewController.swift in Sources */,
@@ -585,6 +592,7 @@
 				050F65B11F19D5B60092230D /* Movie.swift in Sources */,
 				050F65A91F19D5B60092230D /* LogOutViewController.swift in Sources */,
 				050F65CD1F19D5B60092230D /* PhimSapChieuTableViewController.swift in Sources */,
+				050F65DD1F19D5B60092230D /* HistoryBooking.swift in Sources */,
 				050F65D51F19D5B60092230D /* BookVeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
