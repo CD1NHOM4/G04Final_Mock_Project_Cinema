@@ -29,7 +29,7 @@ class PhimDaChieuTableViewController: UITableViewController {
     var refDatabase: DatabaseReference!
     var movies = [MovieDetail]()
     var progressDialog: MBProgressHUD!
-    var searchFilms = [MovieDetail]()
+    var searchMovies = [MovieDetail]()
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -89,11 +89,11 @@ class PhimDaChieuTableViewController: UITableViewController {
     //Sự kiện khi click btnUserProfile
     @IBAction func btnUserProfileClick(_ sender: Any) {
         if Auth.auth().currentUser != nil {
-            let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "userProfileId") as! UserProfileViewController
+            let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "viewUserProfile") as! UserProfileViewController
             //navigationController?.pushViewController(srcUserInfo, animated: true)
             present(srcUserInfo, animated: true, completion: nil)
         } else {
-            let srcSignIn = self.storyboard?.instantiateViewController(withIdentifier: "logInId") as! LogInViewController
+            let srcSignIn = self.storyboard?.instantiateViewController(withIdentifier: "viewDangNhap") as! LogInViewController
             present(srcSignIn, animated: true, completion: nil)
             //navigationController?.pushViewController(srcSignIn, animated: true)
         }
@@ -140,7 +140,7 @@ class PhimDaChieuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if (searchController.isActive && searchController.searchBar.text != "") {
-            return searchFilms.count
+            return searchMovies.count
         }
         return movies.count
     }
@@ -150,7 +150,7 @@ class PhimDaChieuTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieRowCell", for: indexPath) as! CustomTableViewCell
         let movieDetail: MovieDetail
         if (searchController.isActive && searchController.searchBar.text != "") {
-            movieDetail = searchFilms[indexPath.row]
+            movieDetail = searchMovies[indexPath.row]
         }
         else {
             movieDetail = movies[indexPath.row]
@@ -159,10 +159,25 @@ class PhimDaChieuTableViewController: UITableViewController {
         return cell
     }
     
-    //chitiet phim
-    //search
+    //chức năng chi tiết phim...
+    //Sự kiện click cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let srcDetailMovie = self.storyboard?.instantiateViewController(withIdentifier: "viewMovieDetail") as! MovieDetailTableViewController
+        let movieDetail: MovieDetail
+        if (searchController.isActive && searchController.searchBar.text! != "") {
+            movieDetail = searchMovies[indexPath.row]
+        }
+        else {
+            movieDetail = movies[indexPath.row]
+        }
+        
+        srcDetailMovie.movieDetail = movieDetail
+        navigationController?.pushViewController(srcDetailMovie, animated: true)
+    }
+    
+    //Tìm kiếm phim
     func searchMovieByName(_ movieName: String) {
-        searchFilms = movies.filter({ (movieDetail: MovieDetail) -> Bool in
+        searchMovies = movies.filter({ (movieDetail: MovieDetail) -> Bool in
             return movieDetail.movieName.lowercased().contains(movieName.lowercased())
         })
         self.tableView.reloadData()

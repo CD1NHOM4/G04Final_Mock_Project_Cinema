@@ -78,6 +78,14 @@ class UserProfileViewController: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    //Xử lí khi nhấn button btnHome_Act
+    @IBAction func btnHome_Act(_ sender: Any) {
+        let srcUserProfile = self.storyboard?.instantiateViewController(withIdentifier: "viewTrangChu") as! CustomTabBarController
+        self.present(srcUserProfile, animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
     //Hàm hiện Tiến trình đang được xử lí
     func showProgress() {
         thongbaoDangXuLi = MBProgressHUD.showAdded(to: self.view, animated: true)

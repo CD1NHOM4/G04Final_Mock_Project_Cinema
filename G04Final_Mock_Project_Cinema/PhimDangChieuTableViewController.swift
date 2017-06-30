@@ -56,10 +56,10 @@ class PhimDangChieuTableViewController: UITableViewController {
     //Xem profile của người dùng
     @IBAction func btnUserProfile(_ sender: Any) {
         if Auth.auth().currentUser != nil {
-            let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "userProfileId") as! UserProfileViewController
+            let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "viewUserProfile") as! UserProfileViewController
             present(srcUserInfo, animated: true, completion: nil)
         } else {
-            let srcSignIn = self.storyboard?.instantiateViewController(withIdentifier: "logInId") as! LogInViewController
+            let srcSignIn = self.storyboard?.instantiateViewController(withIdentifier: "viewDangNhap") as! LogInViewController
             present(srcSignIn, animated: true, completion: nil)
         }
     }
@@ -79,7 +79,7 @@ class PhimDangChieuTableViewController: UITableViewController {
     //Hiện cảnh báo
     func showAlertDialog(message: String) {
         let alertView = UIAlertController(title: "Thông Báo", message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Huỷ", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Huỷ bỏ", style: .default, handler: nil)
         
         let tryAgainAction = UIAlertAction(title: "Thử lại", style: .default, handler: { (action: UIAlertAction) in
             self.loadData()
@@ -161,8 +161,23 @@ class PhimDangChieuTableViewController: UITableViewController {
         cell.configWithCell(movieDetail: movieDetail)
         return cell
     }
+    
 //chức năng chi tiết phim...
-    //search
+    //Sự kiện click cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let srcDetailMovie = self.storyboard?.instantiateViewController(withIdentifier: "viewMovieDetail") as! MovieDetailTableViewController
+        let movieDetail: MovieDetail
+        if (searchController.isActive && searchController.searchBar.text! != "") {
+            movieDetail = searchMovies[indexPath.row]
+        }
+        else {
+            movieDetail = movies[indexPath.row]
+        }
+        
+        srcDetailMovie.movieDetail = movieDetail
+        navigationController?.pushViewController(srcDetailMovie, animated: true)
+    }
+    //Tìm kiếm Phim
     func searchMovieByName(_ movieName: String) {
         searchMovies = movies.filter({ (movieDetail: MovieDetail) -> Bool in
             return movieDetail.movieName.lowercased().contains(movieName.lowercased())

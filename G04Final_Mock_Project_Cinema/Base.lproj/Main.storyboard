@@ -790,7 +790,7 @@
         <!--Custom Tab Bar Controller-->
         <scene sceneID="Sc3-LD-svG">
             <objects>
-                <tabBarController storyboardIdentifier="TrangChu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fIB-Bz-xTZ" customClass="CustomTabBarController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="viewTrangChu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fIB-Bz-xTZ" customClass="CustomTabBarController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="HjF-tq-iUW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -804,7 +804,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wec-HN-qht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1583" y="296"/>
+            <point key="canvasLocation" x="-921" y="296"/>
         </scene>
         <!--Item-->
         <scene sceneID="01j-3F-jvJ">

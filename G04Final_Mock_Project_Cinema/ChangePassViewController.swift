@@ -99,7 +99,7 @@ class ChangePassViewController: UIViewController {
                         
                         //Hiện Thông Báo thành công
                         let alertView = UIAlertController(title: "Thông Báo", message: "Đổi mật khẩu thành công", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
+                        let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: { (action: UIAlertAction) in
                             self.dismiss(animated: true, completion: nil)
                         })
                         
@@ -167,7 +167,7 @@ class ChangePassViewController: UIViewController {
     //Hàm hiện hộp thoại cảnh báo
     func showAlertDialog(message: String) {
         let alertView = UIAlertController(title: "Thông Báo", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: nil)
         alertView.addAction(action)
         self.present(alertView, animated: true, completion: nil)
     }

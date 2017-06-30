@@ -84,7 +84,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         self.refDatabase.child("Acount").child((user?.uid)!).updateChildValues(dataUser)
                         
                         //Chuẩn bị trước khi chuyển qua Màn hình user Profile
-                        let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "userProfileId") as! UserProfileViewController
+                        let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "viewUserProfile") as! UserProfileViewController
                         self.present(srcUserInfo, animated: true)
                     }
                     //Xuất hiện lỗi, hiện thông báo
@@ -117,7 +117,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     //Hiện hộp thoại cảnh báo
     func showAlertDialog(message: String) {
         let alertView = UIAlertController(title: "Thông Báo", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: nil)
         alertView.addAction(action)
         self.present(alertView, animated: true, completion: nil)
     }
