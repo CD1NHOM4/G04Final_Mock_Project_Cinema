@@ -55,6 +55,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 
                 //Hiện progress
                 self.showProgress()
+                //Gọi hàm xác thực với input là email/password ,
                 Auth.auth().signIn(withEmail: email, password: password.md5()) { (user, error) in
                     
                     //Ẩn progress

@@ -66,7 +66,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             if (result) {
                 //Hiện Progress
                 self.showProgress()
-                Auth.auth().createUser(withEmail: email, password: password.md5()) { (user, error) in
+                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                     //Ẩn tiến trình
                     self.hideProgress()
                     //Nếu không xuất hiện lỗi
@@ -76,7 +76,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                             "email": email,
                             "phone": phone,
                             "address": address,
-                            "password": password.md5(), //mã hoá password
+                            "password": password.md5(), //mã hoá password khi lưu vào database
                             "score": 200,
                             "balance": 300000,
                             "fullName": fullName
@@ -104,6 +104,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
     //Hàm Hiện thông báo tiến trình đang xử lí
     func showProgress() {
         thongbaoDangXuLi = MBProgressHUD.showAdded(to: self.view, animated: true)

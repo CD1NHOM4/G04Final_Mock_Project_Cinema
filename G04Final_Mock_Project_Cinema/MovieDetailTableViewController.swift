@@ -40,7 +40,7 @@ class MovieDetailTableViewController: UITableViewController {
         lbDirector.text = movieDetail.director
         lbActor.text = movieDetail.actor
         lbReleaseDay.text = movieDetail.releaseDate
-        lbVoteAverage.text = String(movieDetail.voteAverage)
+        //lbVoteAverage.text = String(movieDetail.voteAverage)
         
         if (movieDetail.movieType == "PhimDangChieu") {
             type = "Đang chiếu"

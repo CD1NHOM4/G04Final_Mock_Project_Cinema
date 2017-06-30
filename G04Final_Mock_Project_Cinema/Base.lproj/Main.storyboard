@@ -2148,9 +2148,9 @@
     </scenes>
     <resources>
         <image name="BGImg2" width="16" height="16"/>
-        <image name="CGV_Logo" width="16" height="16"/>
-        <image name="close" width="16" height="16"/>
-        <image name="imgNotAvailable" width="16" height="16"/>
-        <image name="user" width="16" height="16"/>
+        <image name="CGV_Logo" width="624" height="160"/>
+        <image name="close" width="128" height="128"/>
+        <image name="imgNotAvailable" width="127" height="127"/>
+        <image name="user" width="28" height="28"/>
     </resources>
 </document>
