@@ -71,5 +71,46 @@ class MovieDetailTableViewController: UITableViewController {
     }
     
     //chon suat chieu
+    //Sự kiện chọn suất chiếu
+    @IBAction func btn850(_ sender: Any) {
+        let srcBuyTicket = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
+        srcBuyTicket.movieDetail = movieDetail
+        srcBuyTicket.time = "850"
+        navigationController?.pushViewController(srcBuyTicket, animated: true)
+    }
     
+    @IBAction func btn1000(_ sender: Any) {
+        let srcBuyTicket = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
+        srcBuyTicket.movieDetail = movieDetail
+        srcBuyTicket.time = "1000"
+        navigationController?.pushViewController(srcBuyTicket, animated: true)
+    }
+    
+    @IBAction func btn1125(_ sender: Any) {
+        let srcBuyTicket = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
+        srcBuyTicket.movieDetail = movieDetail
+        srcBuyTicket.time = "1125"
+        navigationController?.pushViewController(srcBuyTicket, animated: true)
+    }
+    
+    @IBAction func btn1400(_ sender: Any) {
+        let srcBuyTicket = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
+        srcBuyTicket.movieDetail = movieDetail
+        srcBuyTicket.time = "1400"
+        navigationController?.pushViewController(srcBuyTicket, animated: true)
+    }
+    
+    @IBAction func btn1635(_ sender: Any) {
+        let srcBuyTicket = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
+        srcBuyTicket.movieDetail = movieDetail
+        srcBuyTicket.time = "1635"
+        navigationController?.pushViewController(srcBuyTicket, animated: true)
+    }
+    
+    @IBAction func btn1900(_ sender: Any) {
+        let srcBuyTicket = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
+        srcBuyTicket.movieDetail = movieDetail
+        srcBuyTicket.time = "1900"
+        navigationController?.pushViewController(srcBuyTicket, animated: true)
+    }
 }

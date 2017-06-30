@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fIB-Bz-xTZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,24 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1903.2" y="35.532233883058474"/>
-        </scene>
         <!--Log In View Controller-->
         <scene sceneID="mKX-58-j4F">
             <objects>
@@ -91,6 +73,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.22352941179999999" blue="0.20784313730000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Đăng Ký"/>
+                                <connections>
+                                    <segue destination="xuO-vX-pH5" kind="show" id="cur-3S-fb5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIO-gi-Quk">
                                 <rect key="frame" x="147" y="283" width="200" height="30"/>
@@ -105,6 +90,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="bMe-wC-fzE" kind="show" id="YOS-5s-9qG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKC-mE-bpb">
                                 <rect key="frame" x="329" y="20" width="30" height="30"/>
@@ -130,7 +118,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="6o6-1U-riA">
             <objects>
-                <viewController storyboardIdentifier="userProfileView" id="PkX-4F-yVr" customClass="UserProfileViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewUserProfile" id="PkX-4F-yVr" customClass="UserProfileViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D6U-0K-Wlx"/>
                         <viewControllerLayoutGuide type="bottom" id="zTP-bW-KjC"/>
@@ -245,7 +233,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnLogOut:" destination="PkX-4F-yVr" eventType="touchUpInside" id="heo-LX-8R8"/>
+                                    <action selector="btnLogOut_Act:" destination="PkX-4F-yVr" eventType="touchUpInside" id="t6t-qJ-DCO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c3O-Cu-hVq">
@@ -326,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q52-Ol-ccE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2500" y="-620.23988005997012"/>
+            <point key="canvasLocation" x="2558" y="-376"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="HgO-RJ-ePQ">
@@ -490,7 +478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZq-u8-gHe" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3268" y="-367.46626686656674"/>
+            <point key="canvasLocation" x="2558" y="-1048"/>
         </scene>
         <!--Forgot Pass View Controller-->
         <scene sceneID="fDf-bF-HVI">
@@ -521,7 +509,7 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="btnResetPass_Act:" destination="bMe-wC-fzE" eventType="touchUpInside" id="rUG-od-9gk"/>
+                                                <action selector="btnSendPasswordReset_Act:" destination="bMe-wC-fzE" eventType="touchUpInside" id="d9f-Rb-TQ8"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email đã đăng kí" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-JC-pIA">
@@ -574,12 +562,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLu-fu-WiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3370.4000000000001" y="144.3778110944528"/>
+            <point key="canvasLocation" x="3478" y="4"/>
         </scene>
         <!--Change Pass View Controller-->
         <scene sceneID="mTN-aU-hQ7">
             <objects>
-                <viewController storyboardIdentifier="changePassId" id="ng9-5V-lWo" customClass="ChangePassViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewChangePass" id="ng9-5V-lWo" customClass="ChangePassViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mby-vI-ra5"/>
                         <viewControllerLayoutGuide type="bottom" id="uuo-jL-YqA"/>
@@ -674,12 +662,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAE-ab-y6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3268" y="295.50224887556226"/>
+            <point key="canvasLocation" x="3478" y="-810"/>
         </scene>
         <!--Phim Đang Chiếu-->
         <scene sceneID="Z8b-yK-V8g">
             <objects>
-                <tableViewController id="xeh-qM-5fn" customClass="DangChieuTableViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xeh-qM-5fn" customClass="PhimDangChieuTableViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="30" sectionFooterHeight="30" id="CDg-ot-Bur">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -707,7 +695,7 @@
                     <navigationItem key="navigationItem" title="Phim Đang Chiếu" id="i5t-ST-CAZ">
                         <barButtonItem key="leftBarButtonItem" image="user" id="aHp-H4-YXi">
                             <connections>
-                                <action selector="btnUserInfo:" destination="xeh-qM-5fn" id="ND3-XI-AMZ"/>
+                                <action selector="btnUserProfile:" destination="xeh-qM-5fn" id="YSs-XS-5Aq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -720,7 +708,7 @@
         <!--Phim Đã Chiếu-->
         <scene sceneID="jJ3-nN-k5I">
             <objects>
-                <tableViewController id="zu0-bc-cxu" customClass="PhimDaChieuTableViewController" customModule="G04_Mock_Project_Cinema" sceneMemberID="viewController">
+                <tableViewController id="zu0-bc-cxu" customClass="PhimDaChieuTableViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="30" sectionFooterHeight="30" id="QmU-R5-vUW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -748,7 +736,7 @@
                     <navigationItem key="navigationItem" title="Phim Đã Chiếu" id="ZlV-lT-dlJ">
                         <barButtonItem key="leftBarButtonItem" image="user" id="Bsu-0G-qBk">
                             <connections>
-                                <action selector="btnUserInfoClick:" destination="zu0-bc-cxu" id="3df-pP-1zR"/>
+                                <action selector="btnUserProfileClick:" destination="zu0-bc-cxu" id="08S-ol-kVi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -761,7 +749,7 @@
         <!--Phim Sắp Chiếu-->
         <scene sceneID="VBR-JO-Sff">
             <objects>
-                <tableViewController id="eKS-ix-Pby" customClass="SapChieuViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eKS-ix-Pby" customClass="PhimSapChieuViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="30" sectionFooterHeight="30" id="Y0A-XS-iMC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -789,7 +777,7 @@
                     <navigationItem key="navigationItem" title="Phim Sắp Chiếu" id="Adm-Eh-gjM">
                         <barButtonItem key="leftBarButtonItem" image="user" id="x65-sq-P0g">
                             <connections>
-                                <action selector="btnUserInfoClick:" destination="eKS-ix-Pby" id="Enj-Yg-tsg"/>
+                                <action selector="btnUserProfileClick:" destination="eKS-ix-Pby" id="OFD-y0-lBR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -878,7 +866,7 @@
         <!--Movie Detail Table View Controller-->
         <scene sceneID="qQ0-pO-k5x">
             <objects>
-                <tableViewController storyboardIdentifier="movieDetailView" hidesBottomBarWhenPushed="YES" id="j85-3g-Vd7" customClass="MovieDetailTableViewController" customModule="G04_Mock_Project_Cinema" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="viewMovieDetail" hidesBottomBarWhenPushed="YES" id="j85-3g-Vd7" customClass="MovieDetailTableViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Gvj-Vr-dml">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1241,24 +1229,24 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="imgPoster" destination="tNa-H8-LPU" id="L6w-ld-ejp"/>
-                        <outlet property="txtActor" destination="XuX-5G-6lQ" id="DQG-ky-3WA"/>
-                        <outlet property="txtContent" destination="INm-jW-jlD" id="It7-dF-VII"/>
-                        <outlet property="txtDirector" destination="uXr-lL-KDQ" id="41a-pk-N1x"/>
-                        <outlet property="txtFilmType" destination="CIN-yE-jjO" id="H9e-BW-CVr"/>
-                        <outlet property="txtMovieTitle" destination="lmg-kC-N3N" id="2eG-hH-s1V"/>
-                        <outlet property="txtReleaseDay" destination="LVx-Qg-tBc" id="xWS-Sc-JCY"/>
-                        <outlet property="txtType" destination="R0K-dx-4OJ" id="IhZ-wy-WkS"/>
+                        <outlet property="imgPoster" destination="tNa-H8-LPU" id="MVa-iY-IUL"/>
+                        <outlet property="lbActor" destination="XuX-5G-6lQ" id="NWl-MT-NEb"/>
+                        <outlet property="lbDirector" destination="uXr-lL-KDQ" id="JPO-5y-kWX"/>
+                        <outlet property="lbFilmType" destination="CIN-yE-jjO" id="Myl-Wo-JSX"/>
+                        <outlet property="lbGenres" destination="R0K-dx-4OJ" id="Ylt-FU-uKr"/>
+                        <outlet property="lbMovieTitle" destination="lmg-kC-N3N" id="Lve-6B-4we"/>
+                        <outlet property="lbReleaseDay" destination="LVx-Qg-tBc" id="R6L-Te-Zmc"/>
+                        <outlet property="txtvOverView" destination="INm-jW-jlD" id="1JD-4Q-RrN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCM-ka-TEb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="521" y="296"/>
+            <point key="canvasLocation" x="1519" y="296"/>
         </scene>
-        <!--Dat Ve View Controller-->
+        <!--Book Ve View Controller-->
         <scene sceneID="BiL-Ii-X4V">
             <objects>
-                <viewController storyboardIdentifier="DatVe" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fPt-87-qxI" customClass="DatVeViewController" customModule="G04Final_Mock_Project_Cinema" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewBookVe" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fPt-87-qxI" customClass="BookVeViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tp6-sf-VSa"/>
                         <viewControllerLayoutGuide type="bottom" id="Wg0-NE-tBS"/>
@@ -1290,7 +1278,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxz-wB-tah" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxz-wB-tah" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="330" y="259" width="30" height="33"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.92000000000000004" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -1315,7 +1303,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ght-cz-vG2" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ght-cz-vG2" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="220" y="260" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="-">
@@ -1344,7 +1332,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnNext:" destination="fPt-87-qxI" eventType="touchUpInside" id="5NV-yr-ivE"/>
+                                    <action selector="btnBooking_Act:" destination="fPt-87-qxI" eventType="touchUpInside" id="Vvc-nO-6V7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG9-Zv-9Un">
@@ -1372,7 +1360,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vs-s2-1xA" customClass="BorderLabel" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vs-s2-1xA">
                                 <rect key="frame" x="265" y="260" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="DAt-XM-mI7"/>
@@ -1455,22 +1443,22 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imgPoster" destination="gqW-HI-k6T" id="bIN-0N-Ntg"/>
-                        <outlet property="lblMoney" destination="Z53-34-qDa" id="Tay-rS-zBG"/>
-                        <outlet property="txtFilmName" destination="kwJ-bb-Py3" id="ZlY-aw-SZt"/>
-                        <outlet property="txtNumberTicket" destination="5Vs-s2-1xA" id="3XI-0R-VcB"/>
-                        <outlet property="txtPrice" destination="Ctz-0S-eCh" id="oYL-KI-ZoW"/>
-                        <outlet property="txtTime" destination="V20-2G-88C" id="E8H-ef-5ua"/>
+                        <outlet property="imgPoster" destination="gqW-HI-k6T" id="x2t-0G-2Td"/>
+                        <outlet property="lbBillMoney" destination="Z53-34-qDa" id="eyF-tL-4l6"/>
+                        <outlet property="lbMovieName" destination="kwJ-bb-Py3" id="JAj-ho-elI"/>
+                        <outlet property="lbPrice" destination="Ctz-0S-eCh" id="k7p-wR-E5T"/>
+                        <outlet property="lbTicketNumber" destination="5Vs-s2-1xA" id="IZ6-OA-lYB"/>
+                        <outlet property="lbTime" destination="V20-2G-88C" id="dmI-UI-IUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIC-xJ-rQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="754" y="1055"/>
+            <point key="canvasLocation" x="1482" y="1055"/>
         </scene>
-        <!--View Controller-->
+        <!--Chon Ghe View Controller-->
         <scene sceneID="HhK-Fx-y53">
             <objects>
-                <viewController storyboardIdentifier="chonGheView" id="EVR-jk-TaT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewChonGhe" id="EVR-jk-TaT" customClass="ChonGheViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Ze-mr-Y0J"/>
                         <viewControllerLayoutGuide type="bottom" id="iRf-nw-kH0"/>
@@ -1549,7 +1537,7 @@
                                             <action selector="btnAActionClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="mny-Oo-Yv5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEC-lz-pad" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEC-lz-pad" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                         <rect key="frame" x="128" y="7" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A4"/>
@@ -1568,7 +1556,7 @@
                                             <action selector="btnAActionClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="fJE-ez-giF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4z-PS-Jhx" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4z-PS-Jhx" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                         <rect key="frame" x="161" y="7" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A5"/>
@@ -1587,7 +1575,7 @@
                                             <action selector="btnAActionClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="jv9-M5-9Yc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htG-P3-4Zf" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htG-P3-4Zf" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                         <rect key="frame" x="194" y="7" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A6"/>
@@ -1606,7 +1594,7 @@
                                             <action selector="btnAActionClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="Bo5-W2-Ufb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gd-9z-HAS" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gd-9z-HAS" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                         <rect key="frame" x="260" y="7" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A8"/>
@@ -1625,7 +1613,7 @@
                                             <action selector="btnAActionClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="PO3-2E-KeT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4l-Kw-KIU" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4l-Kw-KIU" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                         <rect key="frame" x="227" y="7" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A7"/>
@@ -1644,7 +1632,7 @@
                                             <action selector="btnAActionClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="0mH-5U-dot"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4U1-jf-dUK" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4U1-jf-dUK" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                         <rect key="frame" x="293" y="7" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A9"/>
@@ -1663,7 +1651,7 @@
                                             <action selector="btnAActionClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="QD2-xD-55q"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYC-o9-wid" customClass="DesignButton" customModule="G04_Mock_Project_Cinema" customModuleProvider="target">
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYC-o9-wid" customClass="DesignButton" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target">
                                         <rect key="frame" x="317" y="7" width="34" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A10"/>
@@ -2097,7 +2085,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnPayClick:" destination="EVR-jk-TaT" eventType="touchUpInside" id="GPa-cg-L4L"/>
+                                    <action selector="btnThanhToan_Act:" destination="EVR-jk-TaT" eventType="touchUpInside" id="O9p-Ds-3AJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2155,7 +2143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6g-U6-jMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1492" y="1055"/>
+            <point key="canvasLocation" x="2279" y="1080"/>
         </scene>
     </scenes>
     <resources>

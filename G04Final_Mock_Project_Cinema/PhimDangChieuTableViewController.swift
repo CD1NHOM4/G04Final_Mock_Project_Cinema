@@ -9,21 +9,21 @@ import UIKit
 import MBProgressHUD
 import Firebase
 //
-extension DangChieuTableViewController: UISearchBarDelegate {
+extension PhimDangChieuTableViewController: UISearchBarDelegate {
     // MARK: - UISearchBar Delegate
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         searchMovieByName(searchBar.text!)
     }
 }
 //
-extension DangChieuTableViewController: UISearchResultsUpdating {
+extension PhimDangChieuTableViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         searchMovieByName(searchController.searchBar.text!)
     }
 }
 
-class DangChieuTableViewController: UITableViewController {
+class PhimDangChieuTableViewController: UITableViewController {
     
     var refDatabase: DatabaseReference!
     var movies = [MovieDetail]()

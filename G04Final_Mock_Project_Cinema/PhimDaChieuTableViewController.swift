@@ -87,7 +87,7 @@ class PhimDaChieuTableViewController: UITableViewController {
     }
     
     //Sự kiện khi click btnUserProfile
-    @IBAction func btnUserInfoClick(_ sender: Any) {
+    @IBAction func btnUserProfileClick(_ sender: Any) {
         if Auth.auth().currentUser != nil {
             let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "userProfileId") as! UserProfileViewController
             //navigationController?.pushViewController(srcUserInfo, animated: true)

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MBProgressHUD
 
-class LuaChonGheViewController: UIViewController {
+class ChonGheViewController: UIViewController {
     
     @IBOutlet weak var btnA10: CustomDesignButton!
     @IBOutlet weak var btnA9: CustomDesignButton!
@@ -1145,7 +1145,7 @@ class LuaChonGheViewController: UIViewController {
     }
     
     //Su kien Click button Thanh Toan
-    @IBAction func btnPay_Act(_ sender: Any) {
+    @IBAction func btnThanhToan_Act(_ sender: Any) {
         if (ticket > 0) {
             showAlertDialog(message: "Bạn chọn chưa đủ số ghế. Vui lòng chọn thêm")
         }

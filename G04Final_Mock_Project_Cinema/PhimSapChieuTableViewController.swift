@@ -9,14 +9,15 @@
 import UIKit
 import Firebase
 import MBProgressHUD
-extension SapChieuViewController: UISearchBarDelegate {
+
+extension PhimSapChieuViewController: UISearchBarDelegate {
     // MARK: - UISearchBar Delegate
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         searchMovieByName(searchBar.text!)
     }
 }
 
-extension SapChieuViewController: UISearchResultsUpdating {
+extension PhimSapChieuViewController: UISearchResultsUpdating {
     // MARK: -
     func updateSearchResults(for searchController: UISearchController) {
         searchMovieByName(searchController.searchBar.text!)
@@ -24,7 +25,7 @@ extension SapChieuViewController: UISearchResultsUpdating {
 }
 
 
-class SapChieuViewController: UITableViewController {
+class PhimSapChieuViewController: UITableViewController {
     
     var refDatabase: DatabaseReference!
     var movies = [MovieDetail]()
@@ -94,7 +95,7 @@ class SapChieuViewController: UITableViewController {
     }
     
     //Sự kiện Click vào UserProfile icon
-    @IBAction func btnUserInfoClick(_ sender: Any) {
+    @IBAction func btnUserProfileClick(_ sender: Any) {
         if Auth.auth().currentUser != nil {
             let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "userProfileId") as! UserProfileViewController
             present(srcUserInfo, animated: true, completion: nil)

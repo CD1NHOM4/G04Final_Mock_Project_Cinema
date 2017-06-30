@@ -62,12 +62,12 @@ class UserProfileViewController: UIViewController {
     
     //Sự kiện btnChangePass
     @IBAction func btnChangePass_Act(_ sender: Any) {
-        let srcChangePass = self.storyboard?.instantiateViewController(withIdentifier: "changePassView") as! ChangePassViewController
+        let srcChangePass = self.storyboard?.instantiateViewController(withIdentifier: "viewChangePass") as! ChangePassViewController
         srcChangePass.user = userToMove
         self.present(srcChangePass, animated: true)
     }
     //Sự kiện khi nhấn button đăng xuất khỏi ứng dụng
-    @IBAction func btnLogOut(_ sender: Any) {
+    @IBAction func btnLogOut_Act(_ sender: Any) {
         
         let firebaseAuth = Auth.auth()
         do {

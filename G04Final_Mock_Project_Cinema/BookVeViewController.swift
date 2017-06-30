@@ -134,7 +134,7 @@ class BookVeViewController: UIViewController {
     }
     
     //Xửu lí sự kiện khi nhấn phím Next
-    @IBAction func btnNext(_ sender: Any) {
+    @IBAction func btnBooking_Act(_ sender: Any) {
         //Kiểm tra số vé đặt phải lớn hơn 0
         if (ticketNumber > 0) {
             if Auth.auth().currentUser != nil {
@@ -143,7 +143,7 @@ class BookVeViewController: UIViewController {
                         showAlertDialog(message: "Số tiền trong tài khoản của bạn không đủ")
                     }
                     else {
-                        let src = self.storyboard?.instantiateViewController(withIdentifier: "chonGhe") as! LuaChonGheViewController
+                        let src = self.storyboard?.instantiateViewController(withIdentifier: "viewChonGhe") as! ChonGheViewController
                         src.movieDetail = movieDetail
                         src.time = time
                         src.ticket = Int(self.ticketNumber)
@@ -156,7 +156,7 @@ class BookVeViewController: UIViewController {
                 else {
                     refDatabase.child("Acount").child(getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
                         if let user = snapshot.value as? [String: AnyObject] {
-                            let fullName = user["fullname"] as? String ?? ""
+                            let fullName = user["fullName"] as? String ?? ""
                             let email = user["email"] as? String ?? ""
                             let address = user["address"] as? String ?? ""
                             let phone = user["phone"] as? String ?? ""
@@ -173,7 +173,7 @@ class BookVeViewController: UIViewController {
                             else
                                 //chuyển qua màn hình đặt vé
                             {
-                                let src = self.storyboard?.instantiateViewController(withIdentifier: "chonGhe") as! LuaChonGheViewController
+                                let src = self.storyboard?.instantiateViewController(withIdentifier: "vieChonGhe") as! ChonGheViewController
                                 
                                 src.movieDetail = self.movieDetail
                                 src.time = self.time
@@ -192,7 +192,7 @@ class BookVeViewController: UIViewController {
                 let alertView = UIAlertController(title: "Thông Báo", message: "Bạn cần đăng nhập", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: nil)
                 let actionLogin = UIAlertAction(title: "Đăng nhập", style: .default, handler: { (action: UIAlertAction) in
-                    let srcSignIn = self.storyboard?.instantiateViewController(withIdentifier: "signInId") as! LogInViewController
+                    let srcSignIn = self.storyboard?.instantiateViewController(withIdentifier: "viewDangNhap") as! LogInViewController
                     self.present(srcSignIn, animated: true, completion: nil)
                 })
                 alertView.addAction(action)
