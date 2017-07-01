@@ -83,7 +83,6 @@ class UserProfileViewController: UIViewController {
     @IBAction func btnHome_Act(_ sender: Any) {
         let srcUserProfile = self.storyboard?.instantiateViewController(withIdentifier: "viewTrangChu") as! CustomTabBarController
         self.present(srcUserProfile, animated: true)
-        dismiss(animated: true, completion: nil)
     }
     
     //Hàm hiện Tiến trình đang được xử lí

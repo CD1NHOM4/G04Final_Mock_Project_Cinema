@@ -56,13 +56,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 //Hiện progress
                 self.showProgress()
                 //Gọi hàm xác thực với input là email/password ,
-                Auth.auth().signIn(withEmail: email, password: password.md5()) { (user, error) in
+                Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     
                     //Ẩn progress
                     self.hideProgress()
                     if (error == nil) {
-                        let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "viewUserProfile") as! UserProfileViewController
-                        self.present(srcUserInfo, animated: true)
+                        let srcUserProfile = self.storyboard?.instantiateViewController(withIdentifier: "viewUserProfile") as! UserProfileViewController
+                        self.present(srcUserProfile, animated: true)
                     }
                     else {
                         self.showAlertDialog(message: "Đăng nhập không thành công")

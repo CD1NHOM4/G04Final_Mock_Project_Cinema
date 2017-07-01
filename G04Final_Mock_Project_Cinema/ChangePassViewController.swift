@@ -84,7 +84,7 @@ class ChangePassViewController: UIViewController {
                 self.showProgress()
                 
                 //Gọi hàm Thay đổi Pass của thư viện FireBase
-                newPass = newPass.md5()
+                //newPass = newPass.md5()
                 Auth.auth().currentUser?.updatePassword(to: String(newPass)) { (error) in
                     
                     //Ẩn Progress đang xử lí

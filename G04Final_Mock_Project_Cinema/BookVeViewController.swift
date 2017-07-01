@@ -173,7 +173,7 @@ class BookVeViewController: UIViewController {
                             else
                                 //chuyển qua màn hình đặt vé
                             {
-                                let src = self.storyboard?.instantiateViewController(withIdentifier: "vieChonGhe") as! ChonGheViewController
+                                let src = self.storyboard?.instantiateViewController(withIdentifier: "viewChonGhe") as! ChonGheViewController
                                 
                                 src.movieDetail = self.movieDetail
                                 src.time = self.time
