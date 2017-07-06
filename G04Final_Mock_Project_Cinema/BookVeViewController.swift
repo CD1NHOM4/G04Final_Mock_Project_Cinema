@@ -11,26 +11,28 @@ import MBProgressHUD
 import Firebase
 
 class BookVeViewController: UIViewController {
-    
+    @IBOutlet weak var btnVoucher: UIButton!
+    @IBOutlet weak var useVoucher: UISwitch!
     @IBOutlet weak var imgPoster: UIImageView!
     @IBOutlet weak var lbMovieName: UILabel!
-    @IBOutlet weak var lbActor: UILabel!
     @IBOutlet weak var lbBillMoney: UILabel!
     @IBOutlet weak var lbTime: UILabel!
     @IBOutlet weak var lbTicketNumber: UILabel!
     @IBOutlet weak var lbPrice: UILabel!
     @IBOutlet weak var lbVoucher: UILabel! //ma giam gia
+    @IBOutlet weak var txtFVoucher: UITextField!
     @IBOutlet weak var lbCostTotal: UILabel! //tongtien
     
     var refDatabase: DatabaseReference!
     var progressDialog: MBProgressHUD!
     
     var movieDetail: MovieDetail!
+    var voucher: Voucher!
     var time: String = ""
     var ticketNumber: Int64  = 1
     var priceMovie: Int64 = 0
     var billMoney: Int64 = 0
-    
+    var voucherMoney : Int64 = 0
     var userProfile: UserProfile!
     
     //
@@ -53,6 +55,10 @@ class BookVeViewController: UIViewController {
     
     //Hàm khởi tạo
     func initData() {
+        txtFVoucher.text = ""
+        txtFVoucher.isHidden = true
+        btnVoucher.isHidden = true
+        useVoucher.isOn = false
         loadData()
         loadDataFromDB()
     }
@@ -120,7 +126,7 @@ class BookVeViewController: UIViewController {
         if (ticketNumber > 0) {
             ticketNumber = ticketNumber - 1;
             lbTicketNumber.text = String(ticketNumber)
-            billMoney = priceMovie * ticketNumber
+            billMoney = priceMovie * ticketNumber - voucherMoney
             lbBillMoney.text = String(billMoney) + "VNĐ"
         }
     }
@@ -129,7 +135,7 @@ class BookVeViewController: UIViewController {
     @IBAction func btnAdd(_ sender: Any) {
         ticketNumber = ticketNumber + 1;
         lbTicketNumber.text = String(ticketNumber)
-        billMoney = priceMovie * ticketNumber
+        billMoney = priceMovie * ticketNumber - voucherMoney
         lbBillMoney.text = String(billMoney) + " VNĐ"
     }
     
@@ -207,7 +213,78 @@ class BookVeViewController: UIViewController {
             showAlertDialog(message: "Bạn cần chọn ít nhất 1 vé")
         }
     }
+    // su dung Voucher ?
+    @IBAction func btn_UsingVoucher_Act(_ sender: Any) {
+        if(useVoucher.isOn == true)
+        {
+            //
+            txtFVoucher.isHidden = false
+            btnVoucher.isHidden = false
+            
+        }
+        else {
+            txtFVoucher.isHidden = true
+            txtFVoucher.text = ""
+            voucherMoney = 0
+            btnVoucher.isHidden = true
+        }
+    }
     
+    //Xu li sau khi nguoi dung nhap ma Voucher
+    @IBAction func btn_usingVoucherCode_Act(_ sender: Any) {
+        let voucherValue = txtFVoucher.text!
+        if(!voucherValue.isEmpty)
+        {
+            refDatabase.child("Voucher").child(voucherValue).observeSingleEvent(of: .value, with: { (snapshot) in
+                if (!snapshot.key.isEmpty) {
+                if let voucherCode = snapshot.value as? [String: AnyObject] {
+                    let a = snapshot.key
+                //if let voucherCode = snapshot.key as? String {
+                    let voucherId: String   = a//voucherValue
+                    let cost: Double = voucherCode["cost"] as? Double ?? 0
+                    let endTime: String = voucherCode["endTime"] as? String ?? "2017-12-31"
+                    let state: Bool     = voucherCode["state"] as? Bool ?? false
+                   
+                    //Số tiền chiết khấu
+                    self.voucherMoney = Int64(cost)
+                    //khởi tạo
+                    self.voucher = Voucher.init (voucherId: voucherId,cost: cost, endTime: endTime, state: state)
+
+                    //Add tiền trình vào main thread
+                    DispatchQueue.main.async {
+                        self.hideProgress()
+                    }
+                    
+                    //Kiểm tra voucher còn giá trị ?
+                    if (voucherId == voucherValue){
+                        if(state == true)
+                        {
+                            //voucher.state = false
+                            self.billMoney = self.priceMovie * self.ticketNumber - self.voucherMoney
+                            self.lbBillMoney.text = String(self.billMoney) + "VNĐ"
+                            
+                            //self.voucher = nil
+                            //voucherValue = ""
+                            self.showAlertDialog(message: "Kích hoạt Voucher thành công!")
+                        }
+                        else if(state == false)
+                        {
+                            self.showAlertDialog(message: "Voucher đã hết hạn")
+                        }
+                    }
+                }
+                else{
+                    self.showAlertDialog(message: "Voucher không hợp lệ")
+                    }
+                }
+                            })
+            useVoucher.isOn = false
+        }
+        else{
+            showAlertDialog(message: "Bạn chưa nhập Mã giảm giá!")
+        }
+    }
+
     //Hàm show alertView
     func showAlertDialog(message: String) {
         let alertView = UIAlertController(title: "Thông Báo", message: message, preferredStyle: .alert)

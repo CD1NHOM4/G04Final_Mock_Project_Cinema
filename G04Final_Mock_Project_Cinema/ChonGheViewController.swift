@@ -1151,7 +1151,7 @@ class ChonGheViewController: UIViewController {
         }
         else {
             
-            for place in listPlaces {
+            for _ in listPlaces {
                 //save into movie
                 let dataUpdates = ["state": true, "bookBy": getUid()] as [String: AnyObject]
                 refDatabase.child("movies").child("PhimDangChieu").child("1").child("showTime").child("850").child("seat").child("A5").updateChildValues(dataUpdates)
@@ -1176,7 +1176,7 @@ class ChonGheViewController: UIViewController {
             refDatabase.child("Acount").child(getUid()).child("booked").child(key).updateChildValues(dataFilms)
             
             let alertView = UIAlertController(title: "Thông Báo", message: "Đặt ghế thành công", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction) in
+            let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: { (action: UIAlertAction) in
                 self.navigationController?.popToRootViewController(animated: true)
             })
             alertView.addAction(action)
