@@ -60,26 +60,27 @@ class ChonGheViewController: UIViewController {
         super.viewDidLoad()
         //tham chiếu database
         refDatabase = Database.database().reference()
+        
+        // Lock Orientation (portrait)
+        Utils.lockOrientation(.portrait)
+
         //
         loadData()
-        print(time + "/"+String(ticket))
     }
     
-    //set orientation: portrait
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    //reset orientation
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Reset Orientation khi view đang bị removed
+        Utils.lockOrientation(.all)
     }
     
     //load data tùw database
     func loadData() {
         //Hiện thông báo Đợi
         showProgress()
-    refDatabase.child("movies").child("PhimDangChieu").child("1").child("showTime").child("850").child("seat").observe(.childAdded, with: { (snapshot) in
+        //
+        refDatabase.child("movies").child("PhimDangChieu").child(movieDetail.movieId).child("showTime").child(time).child("seat").observe(.childAdded, with: { (snapshot) in
+            
             //Ẩn thông báo Đợi
             self.hideProgress()
             let seatInfo = snapshot.value as? [String: AnyObject]
@@ -1151,10 +1152,10 @@ class ChonGheViewController: UIViewController {
         }
         else {
             
-            for _ in listPlaces {
+            for place in listPlaces {
                 //save into movie
                 let dataUpdates = ["state": true, "bookBy": getUid()] as [String: AnyObject]
-                refDatabase.child("movies").child("PhimDangChieu").child("1").child("showTime").child("850").child("seat").child("A5").updateChildValues(dataUpdates)
+                 refDatabase.child("movies").child("PhimDangChieu").child(movieDetail.movieId).child("showTime").child(time).child("seat").child(place).updateChildValues(dataUpdates)
             }
             
             //Cập nhật số dư tài khoản sau khi thanh toán
@@ -1162,18 +1163,19 @@ class ChonGheViewController: UIViewController {
             refDatabase.child("Acount").child(getUid()).updateChildValues(dataBalance)
             
             //Lưu vé đã đặt vào users tương ứng
-            let dataFilms = [
-                "movieId": movieDetail.movieId,
-                "movieType": movieDetail.movieType,
-                "price": billMoney,
-                "seat": listPlaces,
-                "showTime": time,
-                "timestamp": getTodayString()
+            let dataMovies = [
+                "movieId": movieDetail.movieId as AnyObject,
+                "movieType": movieDetail.movieType as AnyObject,
+                "price": billMoney as AnyObject,
+                "seat": listPlaces as AnyObject,
+                "showTime": time as AnyObject,
+                "bookTime": Utils.getTodayString()
                 ] as [String: AnyObject]
             
             let key = refDatabase.child("Acount").child(getUid()).child("booked").childByAutoId().key
+            
             //Inser vé đã đặt vào dữ liệu acount tương ứng
-            refDatabase.child("Acount").child(getUid()).child("booked").child(key).updateChildValues(dataFilms)
+            refDatabase.child("Acount").child(getUid()).child("booked").child(key).updateChildValues(dataMovies)
             
             let alertView = UIAlertController(title: "Thông Báo", message: "Đặt ghế thành công", preferredStyle: .alert)
             let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: { (action: UIAlertAction) in
@@ -1182,25 +1184,6 @@ class ChonGheViewController: UIViewController {
             alertView.addAction(action)
             self.present(alertView, animated: true, completion: nil)
         }
-    }
-    
-    //Lấy ngày hiện tại
-    func getTodayString() -> String {
-        let date = Date()
-        let calendar = Calendar.current
-        
-        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        
-        let year = components.year
-        let month = components.month
-        let day = components.day
-        let hour = components.hour
-        let minute = components.minute
-        let second = components.second
-        
-        let today_string = String(year!) + "-" + String(month!) + "-" + String(day!) + " " + String(hour!)  + ":" + String(minute!) + ":" +  String(second!)
-        
-        return today_string
     }
     
     //Hàm hiện cảnh báo

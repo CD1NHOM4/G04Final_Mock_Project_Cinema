@@ -38,15 +38,23 @@ class BookVeViewController: UIViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //tham chiếu đến database
         refDatabase = Database.database().reference()
+        
+        // Lock Orientation (portrait)
+        Utils.lockOrientation(.portrait)
+        
         //Gọi hàm khởi taọ dữ liệu
         initData()
     }
-    //
-    override func viewDidAppear(_ animated: Bool) {
-        print(String(ticketNumber))
-        super.viewDidAppear(true)
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Reset Orientation khi view đang bị removed
+        Utils.lockOrientation(.all)
     }
+
     //
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,23 +76,28 @@ class BookVeViewController: UIViewController {
         
         //Hiện biểu tượng đợi xử lí
         showProgress()
-        refDatabase.child("movies").child("PhimDangChieu").child("1").child("showTime").child("850").child("showTimeInfo").observeSingleEvent(of: .value, with: { (snapshot) in
-            
+        //
+        
+        refDatabase.child("movies").child("PhimDangChieu").child(movieDetail.movieId).child("showTime").child(time).child("showTimeInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+            //
             self.hideProgress()
-            if let showTimeInfo = snapshot.value as? [String: AnyObject] {
-                let price = showTimeInfo["price"] as? Int64 ?? 0
-                let type = showTimeInfo["type"] as? String ?? ""
-                let timeShow = showTimeInfo["time"] as? String ?? ""
-                
-                //Load dữ liệu
-                self.lbPrice.text = String(price) + "VNĐ"
-                self.lbTime.text = type + " - " + timeShow
-                self.priceMovie = price
-                
-                //load data price, tổng tiền = giá * số lượng
-                self.billMoney = self.priceMovie * self.ticketNumber
-                self.lbBillMoney.text = String(self.billMoney) + "VNĐ"
-                
+            //
+            if(snapshot.value != nil)
+            {
+                if let showTimeInfo = snapshot.value as? [String: AnyObject] {
+                    let price = showTimeInfo["price"] as? Int64 ?? 0
+                    let type = showTimeInfo["genres"] as? String ?? ""
+                    let timeShow = showTimeInfo["time"] as? String ?? ""
+                    
+                    //Load dữ liệu
+                    self.lbPrice.text = String(price) + "VNĐ"
+                    self.lbTime.text = type + " - " + timeShow
+                    self.priceMovie = price
+                    
+                    //load data price, tổng tiền = giá * số lượng
+                    self.billMoney = self.priceMovie * self.ticketNumber
+                    self.lbBillMoney.text = String(self.billMoney) + "VNĐ"
+                }
             }
         })
     }

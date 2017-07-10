@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-public class Util{
+public class Utils{
     
     static func getBookingTime() -> String {
         let date = Date()
@@ -45,6 +45,7 @@ public class Util{
         return result
     }
     
+    //Hàm mã hoá MD5
     func md5(_ string: String) -> String {
         
         let context = UnsafeMutablePointer<CC_MD5_CTX>.allocate(capacity: 1)
@@ -60,7 +61,36 @@ public class Util{
         
         return hexString
     }
+    
+    //Lấy ngày hiện tại
+    static func getTodayString() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        
+        let year = components.year
+        let month = components.month
+        let day = components.day
+        let hour = components.hour
+        let minute = components.minute
+        let second = components.second
+        
+        let today_string = String(year!) + "-" + String(month!) + "-" + String(day!) + " " + String(hour!)  + ":" + String(minute!) + ":" +  String(second!)
+        
+        return today_string
+    }
+    
+    // Hàm khoá hiển thị Lock Orientation
+    static func lockOrientation(_ orientation: UIInterfaceOrientationMask) {
+        
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            delegate.orientationLock = orientation
+        }
+    }
 }
+
+
 extension String {
     func md5() -> String! {
         let str = self.cString(using: String.Encoding.utf8)
