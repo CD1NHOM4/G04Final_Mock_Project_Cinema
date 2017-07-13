@@ -11,6 +11,9 @@ import Firebase
 class ForgotPassViewController: UIViewController {
     
     @IBOutlet weak var txtEmailRegistered: UITextField!
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,14 +38,14 @@ class ForgotPassViewController: UIViewController {
         if email.isEmpty
         {
             //Hien cảnh báo Cần Nhập đầy đủ thông tin
-            showAlertDialog(message: "Hãy điền đầy đủ thông tin");
+            showAlertDialog(message: notifyMessage.emptyInput);
         }
         else
         {
             //Kiểm tra định dạng Email
             if !(Validate.isValidEmail(testStr: email))
             {
-                showAlertDialog(message: "Sai định dạng Email")
+                showAlertDialog(message: notifyMessage.invalidEmailFormat)
             }
             else
             {
@@ -51,15 +54,15 @@ class ForgotPassViewController: UIViewController {
                     if error == nil
                     {
                         //show alert
-                        let alertView = UIAlertController(title: "Thông Báo", message: "Một Emai đã được gửi đến EMAIL của bạn", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "Đồng ý", style: .default, handler: { (action: UIAlertAction) in
+                        let alertView = UIAlertController(title: self.notifyMessage.alertTitle, message: self.notifyMessage.successResetPassword, preferredStyle: .alert)
+                        let action = UIAlertAction(title: self.notifyMessage.agreeDialog, style: .default, handler: { (action: UIAlertAction) in
                             self.dismiss(animated: true, completion: nil)
                         })
                         alertView.addAction(action)
                         self.present(alertView, animated: true, completion: nil)
                     }
                     else {
-                        self.showAlertDialog(message: "Gửi email không thành công")
+                        self.showAlertDialog(message: self.notifyMessage.failResetPass)
                     }
                 }
             }

@@ -31,6 +31,9 @@ class PhimDangChieuTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     var progressDialog: MBProgressHUD!
     
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,7 +53,16 @@ class PhimDangChieuTableViewController: UITableViewController {
     }
     
     func loadData() {
-        LayPhimDangChieu()
+        
+        //nếu có kết nối Internet
+        if(Validate.isConnectedToNetwork())
+        {
+            LayPhimDangChieu()
+        }
+        else
+        {
+            showAlertDialog(message: notifyMessage.noInternet)
+        }
     }
     
     //Xem profile của người dùng
@@ -68,7 +80,7 @@ class PhimDangChieuTableViewController: UITableViewController {
     func showProgress() {
         progressDialog = MBProgressHUD.showAdded(to: self.view, animated: true)
         progressDialog.mode = MBProgressHUDMode.indeterminate
-        progressDialog.label.text = "Đang tải..."
+        progressDialog.label.text = notifyMessage.isLoading
     }
     
     //Ẩn tiến trình đợi
@@ -121,7 +133,11 @@ class PhimDangChieuTableViewController: UITableViewController {
             
             //thêm tiến trình vào main thread
             DispatchQueue.main.async {
+                
+                //Ẩn cảnh báo đợi
                 self.hideProgress()
+                
+                //Tải lại dữ liệu
                 self.tableView.reloadData()
             }
         })
@@ -135,30 +151,39 @@ class PhimDangChieuTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         // #warning Incomplete implementation, return the number of rows
         if (searchController.isActive && searchController.searchBar.text != "") {
+            
             return searchMovies.count
         }
+        
         return movies.count
     }
     
     //load dữ liệu lên cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieRowCell", for: indexPath)
             as! CustomTableViewCell
+        
         let movieDetail: MovieDetail
+        
         if (searchController.isActive && searchController.searchBar.text != "") {
             movieDetail = searchMovies[indexPath.row]
         }
         else {
+            
             movieDetail = movies[indexPath.row]
         }
         cell.configWithCell(movieDetail: movieDetail)
+        
         return cell
     }
     

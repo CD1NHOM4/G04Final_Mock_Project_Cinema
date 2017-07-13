@@ -32,6 +32,10 @@ class PhimDaChieuTableViewController: UITableViewController {
     var searchMovies = [MovieDetail]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //tham chiếu lên firebase
@@ -52,7 +56,15 @@ class PhimDaChieuTableViewController: UITableViewController {
     }
     
     func loadData() {
-        LayPhimDaChieu()
+        //kiểm tra kết nối
+        if(Validate.isConnectedToNetwork())
+        {
+            LayPhimDaChieu()
+        }
+        else{
+            
+            showAlertDialog(message: notifyMessage.noInternet)
+        }
     }
     
     func LayPhimDaChieu() {
@@ -77,7 +89,10 @@ class PhimDaChieuTableViewController: UITableViewController {
             
             //khởi tạo
             let movieDetailData: MovieDetail  = MovieDetail.init(movieId: movieId, movieName: movieName, posterUrl: posterUrl, actor: actor, director: director, genres: genres, overview: overview,  duration: duration, voteAverage: voteAverage, releaseDate: releaseDate, trailerUrl: trailerUrl, movieType: movieType)
+            
+            //thêm movie vào danh sách
             self.movies.append(movieDetailData)
+            
             //đưa tiến trình vào main thread
             DispatchQueue.main.async {
                 self.hideProgress()
@@ -90,12 +105,10 @@ class PhimDaChieuTableViewController: UITableViewController {
     @IBAction func btnUserProfileClick(_ sender: Any) {
         if Auth.auth().currentUser != nil {
             let srcUserInfo = self.storyboard?.instantiateViewController(withIdentifier: "viewUserProfile") as! UserProfileViewController
-            //navigationController?.pushViewController(srcUserInfo, animated: true)
             present(srcUserInfo, animated: true, completion: nil)
         } else {
             let srcSignIn = self.storyboard?.instantiateViewController(withIdentifier: "viewDangNhap") as! LogInViewController
             present(srcSignIn, animated: true, completion: nil)
-            //navigationController?.pushViewController(srcSignIn, animated: true)
         }
     }
     
@@ -103,7 +116,7 @@ class PhimDaChieuTableViewController: UITableViewController {
     func showProgress() {
         progressDialog = MBProgressHUD.showAdded(to: self.view, animated: true)
         progressDialog.mode = MBProgressHUDMode.indeterminate
-        progressDialog.label.text = "Đang tải..."
+        progressDialog.label.text = notifyMessage.isLoading
     }
     
     //Hàm ẩn cảnh báo đợi

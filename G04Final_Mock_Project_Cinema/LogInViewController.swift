@@ -11,10 +11,12 @@ import Firebase
 import MBProgressHUD
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
-    
+    //khai báo các biến global
     @IBOutlet weak var txtfEmail: UITextField!
     @IBOutlet weak var txtfPass: UITextField!
     var thongbaoDangXuLi: MBProgressHUD!
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func showProgress() {
         thongbaoDangXuLi = MBProgressHUD.showAdded(to: self.view, animated: true)
         thongbaoDangXuLi.mode = MBProgressHUDMode.indeterminate
-        thongbaoDangXuLi.label.text = " Đang tải..."
+        thongbaoDangXuLi.label.text = notifyMessage.isLoading
     }
     //Ẩn Progress
     func hideProgress() {
@@ -45,15 +47,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let password: String = txtfPass.text!
         
         if (email.isEmpty || password.isEmpty) {
-            showAlertDialog(message: "Hãy điền đầy đủ thông tin");
+            showAlertDialog(message: notifyMessage.emptyInput);
         }
         else {
+            //Nếu email sai định dạng, hiện cảnh báo
             if !(Validate.isValidEmail(testStr: email)) {
-                self.showAlertDialog(message: "Sai định dạng Email")
+                self.showAlertDialog(message: notifyMessage.invalidEmailFormat)
             }
             else {
                 
-                //Hiện progress
+                //Hiện progress đang xử lí
                 self.showProgress()
                 //Gọi hàm xác thực với input là email/password ,
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -65,7 +68,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                         self.present(srcUserProfile, animated: true)
                     }
                     else {
-                        self.showAlertDialog(message: "Đăng nhập không thành công")
+                        self.showAlertDialog(message: self.notifyMessage.failLogin)
                     }
                 }
             }
@@ -74,9 +77,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     //Hiện hộp thoại cảnh báo
     func showAlertDialog(message: String) {
-        let alertView = UIAlertController(title: "Thông Báo", message: message, preferredStyle: .alert)
+        let alertView = UIAlertController(title: notifyMessage.alertTitle, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let action = UIAlertAction(title: notifyMessage.agreeDialog, style: .default, handler: nil)
         alertView.addAction(action)
         self.present(alertView, animated: true, completion: nil)
     }

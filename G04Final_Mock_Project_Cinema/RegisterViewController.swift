@@ -10,12 +10,16 @@ import MBProgressHUD
 import Firebase
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
+    //Khai báo các biến global
     @IBOutlet weak var txtFFullName: UITextField!
     @IBOutlet weak var txtFEmail: UITextField!
     @IBOutlet weak var txtFPass: UITextField!
     @IBOutlet weak var txtFConfirmPass: UITextField!
     @IBOutlet weak var txtFAddress: UITextField!
     @IBOutlet weak var txtFPhone: UITextField!
+    
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
     
     var refDatabase: DatabaseReference!
     var thongbaoDangXuLi: MBProgressHUD!
@@ -43,22 +47,24 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         let fullName: String = txtFFullName.text!
         
         if (email.isEmpty || password.isEmpty || phone.isEmpty || confirmPass.isEmpty || address.isEmpty || fullName.isEmpty){
-            showAlertDialog(message: "Bạn cần điền đầy đủ thông tin");
+            showAlertDialog(message: notifyMessage.emptyInput);
             result = false
         }
         else{
             if !(Validate.isValidEmail(testStr: email)) {
-                showAlertDialog(message: "Sai định dạng Email")
+                showAlertDialog(message: notifyMessage.invalidEmailFormat)
                 result = false
             }
             
             if (password.characters.count < 6 || confirmPass.characters.count < 6) {
-                showAlertDialog(message: "Mật khẩu phải có ít nhất 6 kí tự");
+                showAlertDialog(message: notifyMessage.passwordShort);
                 result = false;
             }
             else {
+                
+                //Mật khẩu nhập nhập lại không trùng khớp
                 if (password != confirmPass) {
-                    showAlertDialog(message: "Mật khẩu không trùng khớp")
+                    showAlertDialog(message: notifyMessage.passwordMissmatch)
                     result = false;
                 }
             }
@@ -67,8 +73,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 //Hiện Progress
                 self.showProgress()
                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    
                     //Ẩn tiến trình
                     self.hideProgress()
+                    
                     //Nếu không xuất hiện lỗi
                     if error == nil {
                         let dataUser = [
@@ -92,11 +100,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         if let errCode = AuthErrorCode(rawValue: error!._code) {
                             switch errCode {
                             case .invalidEmail:
-                                self.showAlertDialog(message: "Sai định dạng Email")
+                                self.showAlertDialog(message: self.notifyMessage.invalidEmailFormat)
                             case .emailAlreadyInUse:
-                                self.showAlertDialog(message: "Email đã được sử dụng, vui lòng thử lại")
+                                self.showAlertDialog(message: self.notifyMessage.emailUsed)
                             default:
-                                self.showAlertDialog(message: "Không thể tạo tài khoản, vui lòng thử lại")
+                                self.showAlertDialog(message: self.notifyMessage.failRegister)
                             }
                         }
                     }
@@ -115,6 +123,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func hideProgress() {
         thongbaoDangXuLi.hide(animated: true)
     }
+    
     //Hiện hộp thoại cảnh báo
     func showAlertDialog(message: String) {
         let alertView = UIAlertController(title: "Thông Báo", message: message, preferredStyle: .alert)

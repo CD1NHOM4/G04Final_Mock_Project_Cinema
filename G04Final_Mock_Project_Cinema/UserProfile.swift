@@ -18,6 +18,7 @@ class UserProfile: NSObject {
     var password: String
     var phone: String
     var balance: Double
+    
     //Khởi tạo
     init(userid: String, fullName: String, email: String, address: String, score: Double,
          password: String, phone: String, balance: Double) {

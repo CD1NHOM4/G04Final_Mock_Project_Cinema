@@ -15,16 +15,17 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var txtFFullName: UITextField!
     @IBOutlet weak var txtFEmail: UITextField!
-    
     @IBOutlet weak var txtFPhone: UITextField!
     @IBOutlet weak var txtFAddress: UITextField!
-    
     @IBOutlet weak var txtScore: UITextField!
-    
     @IBOutlet weak var txtFBalance: UITextField!
+    
     var refDatabase: DatabaseReference!
     var thongbaoDangXuLi: MBProgressHUD!
     var userToMove: UserProfile!
+    
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +76,7 @@ class UserProfileViewController: UIViewController {
             navigationController?.popViewController(animated: true)
             self.dismiss(animated: true)
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            print (notifyMessage.failLogout, signOutError)
         }
     }
     
@@ -89,7 +90,7 @@ class UserProfileViewController: UIViewController {
     func showProgress() {
         thongbaoDangXuLi = MBProgressHUD.showAdded(to: self.view, animated: true)
         thongbaoDangXuLi.mode = MBProgressHUDMode.indeterminate
-        thongbaoDangXuLi.label.text = "Đang tải..."
+        thongbaoDangXuLi.label.text = notifyMessage.isLoading
     }
     
     //Hàm ẩn Tiến trình đang được xử lí

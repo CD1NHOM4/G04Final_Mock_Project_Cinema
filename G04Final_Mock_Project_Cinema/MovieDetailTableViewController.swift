@@ -22,6 +22,9 @@ class MovieDetailTableViewController: UITableViewController {
     @IBOutlet weak var imgPoster: UIImageView!
     var type: String = ""
     
+    //khởi tạo biến chứa các thông báo
+    let notifyMessage = NotifyMessage.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
@@ -39,9 +42,9 @@ class MovieDetailTableViewController: UITableViewController {
         txtvOverView.text = movieDetail.overview
         lbDirector.text = movieDetail.director
         lbActor.text = movieDetail.actor
-        lbReleaseDay.text = movieDetail.releaseDate
-        //lbVoteAverage.text = String(movieDetail.voteAverage)
-        
+        lbReleaseDay.text = " 📆 \(movieDetail.releaseDate)"
+        lbVoteAverage.text = " ⭐️ \(movieDetail.voteAverage)"
+        let a = movieDetail.trailerUrl
         if (movieDetail.movieType == "PhimDangChieu") {
             type = "Đang chiếu"
         }
@@ -112,5 +115,30 @@ class MovieDetailTableViewController: UITableViewController {
         srcBookVe.movieDetail = movieDetail
         srcBookVe.time = "1900"
         navigationController?.pushViewController(srcBookVe, animated: true)
+    }
+    
+    // khi click xem trailer
+    @IBAction func btn_PlayTrailer_Act(_ sender: Any) {
+        if (Validate.isConnectedToNetwork())
+        {
+            let view = self.storyboard?.instantiateViewController(withIdentifier: "viewTrailer") as! YoutubeViewController
+            present(view, animated: true, completion: nil)
+            
+           // view.videoCode = movieDetail.trailerUrl
+                self.navigationController?.pushViewController(view, animated: true)
+        }
+        
+        else
+        {
+            showAlertDialog(message: notifyMessage.noInternet)
+        }
+    }
+    
+    //Hiện hộp thoại cảnh báo
+    func showAlertDialog(message: String) {
+        let alertView = UIAlertController(title: notifyMessage.alertTitle, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: notifyMessage.agreeDialog, style: .default, handler: nil)
+        alertView.addAction(action)
+        self.present(alertView, animated: true, completion: nil)
     }
 }

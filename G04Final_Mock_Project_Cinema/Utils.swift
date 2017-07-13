@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 public class Utils{
-    
+    //Ham lay thoi gian dat ve
     static func getBookingTime() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -20,6 +20,7 @@ public class Utils{
         return result
     }
     
+    //ham lay thoi gian tu chuoi Ngay thang
     static func getDateTimeFromString(string: String, interval: Double) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -28,6 +29,7 @@ public class Utils{
         return date!
     }
     
+    //
     static func getDateFromString(releaseDate: String, interval: Double) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -36,6 +38,7 @@ public class Utils{
         return date!
     }
     
+    //Ham lay ngay hien tai
     static func getDate(interval: Double) -> String {
         var date = Date()
         date.addTimeInterval(interval)
@@ -90,7 +93,7 @@ public class Utils{
     }
 }
 
-
+//Mo rong them ham ma hoa md5 vao lop String
 extension String {
     func md5() -> String! {
         let str = self.cString(using: String.Encoding.utf8)
@@ -104,7 +107,7 @@ extension String {
         for i in 0..<digestLen {
             hash.appendFormat("%02x", result[i])
         }
-        
+    
         result.deinitialize()
         
         return String(format: hash as String)

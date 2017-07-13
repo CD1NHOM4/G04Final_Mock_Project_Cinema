@@ -33,6 +33,9 @@ class PhimSapChieuViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     var searchMovies = [MovieDetail]()
     
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,11 +59,19 @@ class PhimSapChieuViewController: UITableViewController {
     }
     
     func loadData() {
-        DanhSachPhimDangChieu()
+        
+        if(Validate.isConnectedToNetwork())
+        {
+            DanhSachPhimSapChieu()
+        }
+        else
+        {
+            showAlertDialog(message: notifyMessage.noInternet)
+        }
     }
     
     //get list phim sắp chiếu từ database
-    func DanhSachPhimDangChieu() {
+    func DanhSachPhimSapChieu() {
         showProgress()
         refDatabase.child("movies").child("PhimSapChieu").observe(.childAdded, with: { (snapshot) -> Void in
             var movie: [String: AnyObject] = (snapshot.value as? [String: AnyObject])!
@@ -109,7 +120,7 @@ class PhimSapChieuViewController: UITableViewController {
     func showProgress() {
         progressDialog = MBProgressHUD.showAdded(to: self.view, animated: true)
         progressDialog.mode = MBProgressHUDMode.indeterminate
-        progressDialog.label.text = "Đang tải..."
+        progressDialog.label.text = notifyMessage.isLoading
     }
     
     //Ẩn cảnh báo đợi

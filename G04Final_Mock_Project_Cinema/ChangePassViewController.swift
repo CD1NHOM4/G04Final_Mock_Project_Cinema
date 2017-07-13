@@ -19,6 +19,8 @@ class ChangePassViewController: UIViewController {
     var user: UserProfile! = nil
     var thongbaoDangXuLi: MBProgressHUD! = nil
     var rfDatabase: DatabaseReference!
+    //khởi tạo đối tượng chứa các message cảnh báo
+    let notifyMessage = NotifyMessage.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,29 +53,30 @@ class ChangePassViewController: UIViewController {
         
         //Kiểm tra người dùng đã nhập thông tin chưa
         if (oldPass.isEmpty || newPass.isEmpty || confirmPass.isEmpty) {
-            showAlertDialog(message: "Bạn cần điền đầy đủ thông tin")
+            showAlertDialog(message: notifyMessage.emptyInput)
         }
         else {
             var isAcount: Bool = true;
             //Kiểm Tra độ dài Mật khẩu
             if (oldPass.characters.count < 6 || newPass.characters.count < 6 || confirmPass.characters.count < 6){
                 isAcount = false;
-                showAlertDialog(message: "Mật khẩu phải có ít nhất 6 kí tự");
+                showAlertDialog(message: notifyMessage.passwordShort);
                 return;
             }
             
             //Kiểm tra Pass hiện tại có đúng
             let checkPass = user.password
+            
             if (checkPass != oldPass.md5()) {
                 isAcount = false
-                showAlertDialog(message: "Mật khẩu không hợp lệ");
+                showAlertDialog(message: notifyMessage.failChangePassword);
                 return ;
             }
             
             //Kiểm tra Pass mới có trùng với confirmPass
             if (newPass != confirmPass) {
                 isAcount = false;
-                showAlertDialog(message: "Mật khẩu không trùng khớp");
+                showAlertDialog(message: notifyMessage.passwordMissmatch);
                 return ;
             }
             
@@ -98,8 +101,8 @@ class ChangePassViewController: UIViewController {
                         self.rfDatabase.child("Acount").child(self.getUid()).updateChildValues(dataUpdatePass)
                         
                         //Hiện Thông Báo thành công
-                        let alertView = UIAlertController(title: "Thông Báo", message: "Đổi mật khẩu thành công", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: { (action: UIAlertAction) in
+                        let alertView = UIAlertController(title: self.notifyMessage.alertTitle, message: self.notifyMessage.successChangePassword, preferredStyle: .alert)
+                        let action = UIAlertAction(title: self.notifyMessage.agreeDialog, style: .default, handler: { (action: UIAlertAction) in
                             self.dismiss(animated: true, completion: nil)
                         })
                         
@@ -110,7 +113,7 @@ class ChangePassViewController: UIViewController {
                         //Nếu có lỗi,hiện Thông Báo đổi pass thất bại
                     else
                     {
-                        self.showAlertDialog(message: "Đổi mật khẩu thất bại")
+                        self.showAlertDialog(message: self.notifyMessage.failChangePassword)
                     }
                 }
             }
@@ -126,7 +129,7 @@ class ChangePassViewController: UIViewController {
     func showProgress() {
         thongbaoDangXuLi = MBProgressHUD.showAdded(to: self.view, animated: true)
         thongbaoDangXuLi.mode = MBProgressHUDMode.indeterminate
-        thongbaoDangXuLi.label.text = "Đang tải..."
+        thongbaoDangXuLi.label.text = notifyMessage.isLoading
     }
     //Hàm ẩn Progress đang xử lí
     func hideProgress() {
@@ -166,8 +169,8 @@ class ChangePassViewController: UIViewController {
     
     //Hàm hiện hộp thoại cảnh báo
     func showAlertDialog(message: String) {
-        let alertView = UIAlertController(title: "Thông Báo", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Chấp nhận", style: .default, handler: nil)
+        let alertView = UIAlertController(title: notifyMessage.alertTitle, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: notifyMessage.agreeDialog, style: .default, handler: nil)
         alertView.addAction(action)
         self.present(alertView, animated: true, completion: nil)
     }
