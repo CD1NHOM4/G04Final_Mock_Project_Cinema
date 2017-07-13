@@ -44,7 +44,7 @@ class MovieDetailTableViewController: UITableViewController {
         lbActor.text = movieDetail.actor
         lbReleaseDay.text = " 📆 \(movieDetail.releaseDate)"
         lbVoteAverage.text = " ⭐️ \(movieDetail.voteAverage)"
-        let a = movieDetail.trailerUrl
+
         if (movieDetail.movieType == "PhimDangChieu") {
             type = "Đang chiếu"
         }
