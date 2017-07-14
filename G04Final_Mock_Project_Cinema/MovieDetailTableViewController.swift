@@ -121,9 +121,10 @@ class MovieDetailTableViewController: UITableViewController {
     @IBAction func btn_PlayTrailer_Act(_ sender: Any) {
         if (Validate.isConnectedToNetwork())
         {
-            let view = self.storyboard?.instantiateViewController(withIdentifier: "viewTrailer") as! YoutubeViewController
-            present(view, animated: true, completion: nil)
+            //Tìm view với id tương ứng
+            let view = self.storyboard?.instantiateViewController(withIdentifier: "viewTrailerYoutube") as! YoutubeViewController
             
+            //set dũ liệu cho biếnvideoCode, và chuyển qua màn hình xem trailer
             view.videoCode = movieDetail.trailerUrl
                 self.navigationController?.pushViewController(view, animated: true)
         }

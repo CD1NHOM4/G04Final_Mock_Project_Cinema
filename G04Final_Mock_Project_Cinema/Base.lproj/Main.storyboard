@@ -810,7 +810,7 @@
                                 <rect key="frame" x="0.0" y="80" width="375" height="38"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJ8-6L-N1n" id="O0k-Ik-xDu">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1052,7 +1052,7 @@
                                     </constraints>
                                     <state key="normal" image="videoplay"/>
                                     <connections>
-                                        <action selector="btn_PlayTrailer_Act:" destination="j85-3g-Vd7" eventType="touchUpInside" id="Ngp-FT-o4d"/>
+                                        <action selector="btn_PlayTrailer_Act:" destination="j85-3g-Vd7" eventType="touchUpInside" id="gFr-Do-eWN"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -1157,7 +1157,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="4fh-ox-qlN"/>
                                                     </constraints>
-                                                    <state key="normal" title="8:30">
+                                                    <state key="normal" title="08:30">
                                                         <color key="titleColor" red="1" green="0.016467693960000002" blue="0.04106647276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -1359,65 +1359,66 @@
             <point key="canvasLocation" x="1517.5999999999999" y="294.60269865067471"/>
         </scene>
         <!--Youtube View Controller-->
-        <scene sceneID="3rc-ma-0Zb">
+        <scene sceneID="sHz-W1-q3i">
             <objects>
-                <viewController storyboardIdentifier="viewTrailer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="98V-qd-xI1" customClass="YoutubeViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewTrailerYoutube" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y9h-Pb-3Uq" customClass="YoutubeViewController" customModule="G04Final_Mock_Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qe5-Sx-bQN"/>
-                        <viewControllerLayoutGuide type="bottom" id="D2m-GN-WNp"/>
+                        <viewControllerLayoutGuide type="top" id="U42-eF-y5C"/>
+                        <viewControllerLayoutGuide type="bottom" id="fg5-Ck-KEf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YAH-GB-6aA">
+                    <view key="view" contentMode="scaleToFill" id="BXY-T9-FUI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-3I-M22">
-                                <rect key="frame" x="5" y="65" width="365" height="182.5"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7R-kT-5Wv">
+                                <rect key="frame" x="16" y="60" width="343" height="193"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="yf9-3I-M22" secondAttribute="height" multiplier="2:1" id="G9N-q4-JMl"/>
+                                    <constraint firstAttribute="width" secondItem="A7R-kT-5Wv" secondAttribute="height" multiplier="16:9" id="p3f-30-sUE"/>
                                 </constraints>
                             </webView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et3-fR-iD4">
-                                <rect key="frame" x="21" y="25" width="333" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DN7-do-lYF">
+                                <rect key="frame" x="16" y="20" width="343" height="35"/>
+                                <color key="tintColor" red="1" green="0.60272117270000003" blue="0.23398254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="b54-ms-3ew"/>
+                                    <constraint firstAttribute="height" constant="35" id="dnK-fK-fqN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <color key="textColor" red="1" green="0.60272117270000003" blue="0.23398254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA5-XM-ybh">
-                                <rect key="frame" x="334" y="25" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnF-nq-Z5l">
+                                <rect key="frame" x="324" y="30" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="2f9-L7-tVt"/>
-                                    <constraint firstAttribute="height" constant="30" id="isv-Vo-KNe"/>
+                                    <constraint firstAttribute="height" constant="30" id="1zq-Gj-AwY"/>
+                                    <constraint firstAttribute="width" constant="30" id="DSN-s4-0Jt"/>
                                 </constraints>
                                 <color key="tintColor" red="0.86758623580000005" green="0.87377224350000005" blue="0.89233026650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="imgClose"/>
                                 <connections>
-                                    <action selector="btn_Back_Act:" destination="98V-qd-xI1" eventType="touchUpInside" id="Qve-fW-6DA"/>
+                                    <action selector="btn_Back_Act:" destination="Y9h-Pb-3Uq" eventType="touchUpInside" id="acG-x3-aSD"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yf9-3I-M22" firstAttribute="leading" secondItem="YAH-GB-6aA" secondAttribute="leading" constant="5" id="H5h-Wy-HTp"/>
-                            <constraint firstItem="fA5-XM-ybh" firstAttribute="top" secondItem="qe5-Sx-bQN" secondAttribute="bottom" constant="5" id="SSq-gH-k6h"/>
-                            <constraint firstItem="fA5-XM-ybh" firstAttribute="trailing" secondItem="YAH-GB-6aA" secondAttribute="trailingMargin" constant="5" id="dNf-6o-0pz"/>
-                            <constraint firstAttribute="trailing" secondItem="yf9-3I-M22" secondAttribute="trailing" constant="5" id="fFd-93-qxo"/>
-                            <constraint firstItem="et3-fR-iD4" firstAttribute="top" secondItem="qe5-Sx-bQN" secondAttribute="bottom" constant="5" id="iqV-2t-Y8s"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="et3-fR-iD4" secondAttribute="trailing" constant="5" id="rvo-0O-NKg"/>
-                            <constraint firstItem="et3-fR-iD4" firstAttribute="leading" secondItem="YAH-GB-6aA" secondAttribute="leadingMargin" constant="5" id="rwC-AJ-qwj"/>
-                            <constraint firstItem="yf9-3I-M22" firstAttribute="top" secondItem="et3-fR-iD4" secondAttribute="bottom" constant="5" id="y2t-Oq-xfh"/>
+                            <constraint firstItem="DN7-do-lYF" firstAttribute="leading" secondItem="BXY-T9-FUI" secondAttribute="leadingMargin" id="5NW-zp-q6b"/>
+                            <constraint firstItem="DN7-do-lYF" firstAttribute="top" secondItem="U42-eF-y5C" secondAttribute="bottom" id="8cW-K6-xOr"/>
+                            <constraint firstItem="A7R-kT-5Wv" firstAttribute="top" secondItem="DN7-do-lYF" secondAttribute="bottom" constant="5" id="C4R-5H-3zm"/>
+                            <constraint firstItem="DN7-do-lYF" firstAttribute="trailing" secondItem="BXY-T9-FUI" secondAttribute="trailingMargin" id="E0Z-Pb-Y20"/>
+                            <constraint firstItem="LnF-nq-Z5l" firstAttribute="trailing" secondItem="BXY-T9-FUI" secondAttribute="trailingMargin" constant="-5" id="MSN-UQ-pVs"/>
+                            <constraint firstItem="A7R-kT-5Wv" firstAttribute="leading" secondItem="BXY-T9-FUI" secondAttribute="leadingMargin" id="SxE-nv-RUY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A7R-kT-5Wv" secondAttribute="trailing" id="T5T-6V-wZ4"/>
+                            <constraint firstItem="LnF-nq-Z5l" firstAttribute="top" secondItem="U42-eF-y5C" secondAttribute="bottom" constant="10" id="r3b-Lj-48s"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="youTubeWebView" destination="yf9-3I-M22" id="u66-6r-OM9"/>
+                        <outlet property="youTubeWebView" destination="A7R-kT-5Wv" id="eio-lv-rS7"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I3u-IV-QnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YS1-is-G6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2176.8000000000002" y="291.90404797601201"/>
+            <point key="canvasLocation" x="2176" y="295"/>
         </scene>
         <!--Book Ve View Controller-->
         <scene sceneID="BiL-Ii-X4V">

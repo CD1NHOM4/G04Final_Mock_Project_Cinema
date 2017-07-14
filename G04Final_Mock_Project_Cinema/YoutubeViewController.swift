@@ -14,11 +14,7 @@ class YoutubeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if(videoCode != nil)
-        {
             getVideo(videoCode: videoCode!)
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,6 +23,7 @@ class YoutubeViewController: UIViewController {
     
     //Hàm get video từ thông url truyền vào
     func getVideo(videoCode: String) {
+        
         let url = URL(string: "https://www.youtube.com/embed/\(videoCode)")
         youTubeWebView.loadRequest(URLRequest(url: url!))
         if (!youTubeWebView.isLoading) {
