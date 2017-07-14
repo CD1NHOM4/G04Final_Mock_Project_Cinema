@@ -73,7 +73,7 @@ class PhimSapChieuViewController: UITableViewController {
     //get list phim sắp chiếu từ database
     func DanhSachPhimSapChieu() {
         showProgress()
-        refDatabase.child("movies").child("PhimSapChieu").observe(.childAdded, with: { (snapshot) -> Void in
+        refDatabase.child("movies").observe(.childAdded, with: { (snapshot) -> Void in
             var movie: [String: AnyObject] = (snapshot.value as? [String: AnyObject])!
             var movieDetail = movie["movieDetail"] as? [String: AnyObject]
             //Lấy data chứa trong movieDetail
@@ -90,19 +90,24 @@ class PhimSapChieuViewController: UITableViewController {
             let trailerUrl: String  = movieDetail!["trailerUrl"] as? String ?? ""
             let movieType: String   = movieDetail!["movieType"] as? String ?? ""
             
+            //Lấy ngày hiện tại
+            let currentDate = Date()
             //khởi tạo
             let movieDetailData: MovieDetail  = MovieDetail.init(movieId: movieId, movieName: movieName, posterUrl: posterUrl, actor: actor, director: director, genres: genres, overview: overview,  duration: duration, voteAverage: voteAverage, releaseDate: releaseDate, trailerUrl: trailerUrl, movieType: movieType)
             
-            //Thêm Phim vào danh sách
-            self.movies.append(movieDetailData)
+            //nếu Phim có ngày khởi chiếu lớn hơn ngày hiện tại 20 ngày 
+            if (Utils.getDateFromString(releaseDate: movieDetailData.releaseDate, interval: 0) > currentDate.addingTimeInterval(1814400))
+            {
+                //Thêm Phim vào danh sách Phim sắp chiếu
+                self.movies.append(movieDetailData)
+            }
             
             //Add tiền trình vào main thread
             DispatchQueue.main.async {
                 self.hideProgress()
                 self.tableView.reloadData()
             }
-        }
-        )
+        })
     }
     
     //Sự kiện Click vào UserProfile icon

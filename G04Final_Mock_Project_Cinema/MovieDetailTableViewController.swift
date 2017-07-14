@@ -44,7 +44,7 @@ class MovieDetailTableViewController: UITableViewController {
         lbActor.text = movieDetail.actor
         lbReleaseDay.text = " 📆 \(movieDetail.releaseDate)"
         lbVoteAverage.text = " ⭐️ \(movieDetail.voteAverage)"
-
+        
         if (movieDetail.movieType == "PhimDangChieu") {
             type = "Đang chiếu"
         }
@@ -75,45 +75,45 @@ class MovieDetailTableViewController: UITableViewController {
     
     //chon suat chieu
     //Sự kiện chọn suất chiếu
-    @IBAction func btn850(_ sender: Any) {
+    @IBAction func btn0830(_ sender: Any) {
         let srcBookVe = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
         srcBookVe.movieDetail = movieDetail
-        srcBookVe.time = "850"
+        srcBookVe.time = "8:30"
         navigationController?.pushViewController(srcBookVe, animated: true)
     }
     
     @IBAction func btn1000(_ sender: Any) {
         let srcBookVe = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
         srcBookVe.movieDetail = movieDetail
-        srcBookVe.time = "1000"
+        srcBookVe.time = "10:00"
         navigationController?.pushViewController(srcBookVe, animated: true)
     }
     
     @IBAction func btn1125(_ sender: Any) {
         let srcBookVe = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
         srcBookVe.movieDetail = movieDetail
-        srcBookVe.time = "1125"
+        srcBookVe.time = "11:25"
         navigationController?.pushViewController(srcBookVe, animated: true)
     }
     
     @IBAction func btn1400(_ sender: Any) {
         let srcBookVe = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
         srcBookVe.movieDetail = movieDetail
-        srcBookVe.time = "1400"
+        srcBookVe.time = "14:00"
         navigationController?.pushViewController(srcBookVe, animated: true)
     }
     
-    @IBAction func btn1635(_ sender: Any) {
+    @IBAction func btn1630(_ sender: Any) {
         let srcBookVe = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
         srcBookVe.movieDetail = movieDetail
-        srcBookVe.time = "1635"
+        srcBookVe.time = "16:30"
         navigationController?.pushViewController(srcBookVe, animated: true)
     }
     
     @IBAction func btn1900(_ sender: Any) {
         let srcBookVe = self.storyboard?.instantiateViewController(withIdentifier: "viewBookVe") as! BookVeViewController
         srcBookVe.movieDetail = movieDetail
-        srcBookVe.time = "1900"
+        srcBookVe.time = "19:00"
         navigationController?.pushViewController(srcBookVe, animated: true)
     }
     
@@ -124,7 +124,7 @@ class MovieDetailTableViewController: UITableViewController {
             let view = self.storyboard?.instantiateViewController(withIdentifier: "viewTrailer") as! YoutubeViewController
             present(view, animated: true, completion: nil)
             
-           // view.videoCode = movieDetail.trailerUrl
+            view.videoCode = movieDetail.trailerUrl
                 self.navigationController?.pushViewController(view, animated: true)
         }
         

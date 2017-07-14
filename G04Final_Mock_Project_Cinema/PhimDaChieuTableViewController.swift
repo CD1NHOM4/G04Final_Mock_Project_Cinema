@@ -70,7 +70,7 @@ class PhimDaChieuTableViewController: UITableViewController {
     func LayPhimDaChieu() {
         //Hiện cảnh báo đợi
         showProgress()
-        refDatabase.child("movies").child("PhimDaChieu").observe(.childAdded, with: { (snapshot) -> Void in
+        refDatabase.child("movies").observe(.childAdded, with: { (snapshot) -> Void in
             var movie: [String: AnyObject] = (snapshot.value as? [String: AnyObject])!
             var movieDetail = movie["movieDetail"] as? [String: AnyObject]
             //Lấy data chứa trong movieDetail
@@ -89,9 +89,16 @@ class PhimDaChieuTableViewController: UITableViewController {
             
             //khởi tạo
             let movieDetailData: MovieDetail  = MovieDetail.init(movieId: movieId, movieName: movieName, posterUrl: posterUrl, actor: actor, director: director, genres: genres, overview: overview,  duration: duration, voteAverage: voteAverage, releaseDate: releaseDate, trailerUrl: trailerUrl, movieType: movieType)
+          
+            //Lấy ngày hiện tại
+            let currentDate = Date()
             
-            //thêm movie vào danh sách
-            self.movies.append(movieDetailData)
+            //Nếu phim đã chiếu được 3 tuần => đưa vào danh sách phim đã chiếu
+            if (Utils.getDateFromString(releaseDate: movieDetailData.releaseDate, interval: 1814400) < currentDate)
+            {
+                //thêm movie vào danh sách phim đã chiếu
+                self.movies.append(movieDetailData)
+            }
             
             //đưa tiến trình vào main thread
             DispatchQueue.main.async {

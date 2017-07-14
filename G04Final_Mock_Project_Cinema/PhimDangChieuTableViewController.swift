@@ -52,6 +52,7 @@ class PhimDangChieuTableViewController: UITableViewController {
         tableView.tableHeaderView = searchController.searchBar
     }
     
+    //Hàm lấy dữ liệu
     func loadData() {
         
         //nếu có kết nối Internet
@@ -106,10 +107,11 @@ class PhimDangChieuTableViewController: UITableViewController {
     func LayPhimDangChieu(){
         //Hiện cảnh báo đợi
         showProgress()
-        refDatabase.child("movies").child("PhimDangChieu").observe(.childAdded, with: { (snapshot) -> Void in
+        refDatabase.child("movies").observe(.childAdded, with: { (snapshot) -> Void in
             
             var movie: [String: AnyObject] = (snapshot.value as? [String: AnyObject])!
             var movieDetail = movie["movieDetail"] as? [String: AnyObject]
+            let currentDate = Date() //Lấy ngày hiện tại
             
             //Lấy data chứa trong movieDetail
             let movieId: String   = movieDetail!["movieId"] as? String ?? ""
@@ -127,9 +129,16 @@ class PhimDangChieuTableViewController: UITableViewController {
             
             //khởi tạo
             let movieDetailData: MovieDetail  = MovieDetail.init(movieId: movieId, movieName: movieName, posterUrl: posterUrl, actor: actor, director: director, genres: genres, overview: overview,  duration: duration, voteAverage: voteAverage, releaseDate: releaseDate, trailerUrl: trailerUrl, movieType: movieType)
+           
+            //Nếu movie có ngày khởi chiếu nằm trong khoảng thời gian từ hiện tại đến 20 ngày sau đó=> đưa vào danh sách Phimdangchieu
+            //interval: 1814400 = 3weeks
+            if ((Utils.getDateFromString(releaseDate: movieDetailData.releaseDate, interval: 0) <= currentDate)
+                && (currentDate <= Utils.getDateFromString(releaseDate: movieDetailData.releaseDate, interval: 1814400))) {
+                
+                //Thêm 1 bộ phim vào danh sách Phim đang chiếu,
+                self.movies.append(movieDetailData)
+            }
             
-            //Thêm 1 bộ phim vào danh sách Phim
-            self.movies.append(movieDetailData)
             
             //thêm tiến trình vào main thread
             DispatchQueue.main.async {

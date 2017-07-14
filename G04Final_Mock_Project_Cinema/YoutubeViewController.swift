@@ -15,7 +15,10 @@ class YoutubeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getVideo(videoCode: videoCode!)
+        if(videoCode != nil)
+        {
+            getVideo(videoCode: videoCode!)
+        }
     }
     
     override func didReceiveMemoryWarning() {
